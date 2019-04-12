@@ -2,7 +2,6 @@ package com.aygxy.jpa.repository;
 
 import com.aygxy.jpa.BaseRepository;
 import com.aygxy.jpa.entity.City;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public interface CityRepository extends BaseRepository<City,String>,QuerydslPredicateExecutor<City> {
+public interface CityRepository extends BaseRepository<City,String>{
 
 }

@@ -2,7 +2,6 @@ package com.aygxy.jpa.repository;
 
 import com.aygxy.jpa.BaseRepository;
 import com.aygxy.jpa.entity.Department;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @Date: 2019/4/7-16:13
  */
 @Repository
-public interface DepartmentRepository extends BaseRepository<Department,String>,QuerydslPredicateExecutor<Department> {
+public interface DepartmentRepository extends BaseRepository<Department,String>{
 }
