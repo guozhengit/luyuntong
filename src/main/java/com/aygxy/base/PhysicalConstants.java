@@ -6,20 +6,24 @@ package com.aygxy.base;
  * @Author: xmf
  * @Date: 2019/1/21-15:16
  */
+@SuppressWarnings("rawtypes")
 public abstract class PhysicalConstants  {
     /**********************************WebService服务常量**********************************/
     /**
      * @Fields WebService目标命名空间
      */
+    @SuppressWarnings("rawtypes")
     public final static String TARGET_NAMESPACE = "http://service.web.custom.baiwang.com";
     /**
      * @Fields endpoint接口路径
      */
+    @SuppressWarnings("rawtypes")
     public final static String BASE_ENDPOINT_INTERFACE = "com.baiwang.custom.web.service.";
     /**
      /**
      * @Fields 响应头部信息
      */
+    @SuppressWarnings("rawtypes")
     public final static String RESPONSE_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
     /**
@@ -71,8 +75,8 @@ public abstract class PhysicalConstants  {
     /**
      * -1	未知错误
      */
-    public static final String UN_ERROR = "-1";
-    public static final String UN_ERROR_CN = "未知错误";
+    public final static  String UN_ERROR = "-1";
+    public  final static  String UN_ERROR_CN = "未知错误";
 
     /**
      * 004	请求参数不正确

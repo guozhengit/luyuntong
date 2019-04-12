@@ -48,7 +48,7 @@ public class  UserServiceImpl implements UserService {
         try {
             userEntity.setCreateTime(new Date());
             User user = userRepository.save(userEntity);
-            return new Result(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,user);
+            return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,user);
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
         }
@@ -58,7 +58,7 @@ public class  UserServiceImpl implements UserService {
     public Result deleteByOne(String uid) {
         try {
             userRepository.deleteById(uid);
-            return new Result(PhysicalConstants.DELETE_SUCCESS,PhysicalConstants.DELETE_SUCCESS_CN);
+            return new Result<>(PhysicalConstants.DELETE_SUCCESS,PhysicalConstants.DELETE_SUCCESS_CN);
         }catch (Exception e){
             e.getStackTrace();
             throw new BusinessException(PhysicalConstants.DELETE_UNSUCCESS_CN);
@@ -73,7 +73,7 @@ public class  UserServiceImpl implements UserService {
         if (StringUtils.isEmpty(user)){
             throw new BusinessException(PhysicalConstants.REQUE_UNSUCCESS_CN);
         }else {
-            return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,user);
+            return new Result<>(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,user);
         }
     }
 
@@ -86,7 +86,7 @@ public class  UserServiceImpl implements UserService {
             User entity = optional.get();
             BeanUtils.copyProperties(user, entity);
             User user1 = userRepository.save(entity);
-            return new Result(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,user1);
+            return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,user1);
         } else {
             throw new BusinessException(PhysicalConstants.UPDATE_UNSUCCESS_CN);
         }
@@ -96,7 +96,7 @@ public class  UserServiceImpl implements UserService {
      * 部分字段映射查询
      * 投影为UserRes,lambda方式(灵活，类型可以在lambda中修改)
      * birthday(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(tuple.get(user.birthday)))
-     * @return
+     * @return Result
      */
     @Override
     public Result findAll(Pageable pageable) {
@@ -126,7 +126,7 @@ public class  UserServiceImpl implements UserService {
         if (dtoList.isEmpty()) {
             throw new BusinessException(PhysicalConstants.REQUE_UNSUCCESS_CN);
         } else {
-            return new Result(PhysicalConstants.REQUE_SUCCESS, PhysicalConstants.REQUE_SUCCESS_CN, dtoList);
+            return new Result<>(PhysicalConstants.REQUE_SUCCESS, PhysicalConstants.REQUE_SUCCESS_CN, dtoList);
         }
     }
 
@@ -148,6 +148,6 @@ public class  UserServiceImpl implements UserService {
                 .groupBy(qUser.age)           //执行分组
                 .having(qUser.age.between("10","50"))//10-50间
                 .fetch();
-        return new  Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,list);
+        return new  Result<>(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,list);
     }
 }

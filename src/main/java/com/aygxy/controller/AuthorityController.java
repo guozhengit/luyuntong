@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date: 2019/4/8-0:07
  */
 @RestController
-@Api(value = "用户Controller")
+@Api(value = "权限管理")
 @RequestMapping("/auth")
 public class AuthorityController {
     private static Logger logger = LoggerFactory.getLogger(AuthorityController.class);

@@ -38,9 +38,10 @@ public class GlobalExceptionHandler {
     @ResponseBody
     @ExceptionHandler
     public Result exceptionHandler(Exception exception, HttpServletRequest request, HttpServletResponse response) {
-        Result<String> result = new Result<String>().setCode(UNKNOWN_CODE)
-                .setPath(request.getRequestURI())
-                .setTimestamp(new Date());
+        Result<String> result = new Result<>();
+        result.setCode(UNKNOWN_CODE);
+        result.setPath(request.getRequestURI());
+        result.setTimestamp(new Date());
         if (exception instanceof BusinessException) {
             result.setMessage(exception.getMessage());
         } else {

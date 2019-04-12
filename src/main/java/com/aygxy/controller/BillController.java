@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date: 2019/4/8-0:07
  */
 @RestController
-@Api(value = "用户Controller")
+@Api(value = "订单管理")
 @RequestMapping("/bill")
 public class BillController {
     private static Logger logger = LoggerFactory.getLogger(BillController.class);
