@@ -28,57 +28,6 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
     private static Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
-    @Autowired
-    private UserService userService;
-
-    @ApiOperation(value = "添加用户", notes = "根据User对象创建用户")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "用户id(必填)", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "name", value = "用户账号(必填)", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "password", value = "用户密码(必填)", required = true, dataType = "String")})
-    @PostMapping()
-    public Result addUser(@RequestBody User user) {
-        logger.info("user.add parameter is [{}]",JSON.toJSON(user));
-
-        return userService.addByOne(user);
-    }
-
-    @ApiOperation(value = "删除用户", notes = "通过id删除用户")
-    @ApiImplicitParam(name = "uid", value = "用户id(必填)", required = true, dataType = "String")
-    @DeleteMapping("/{uid}")
-    public Result deleteUser(@PathVariable String  uid) {
-        logger.info("user.delete parameter is [{}]",JSON.toJSON(uid));
-        return userService.queryById(uid);
-    }
-
-    @ApiOperation(value = "修改用户", notes = "通过id修改用户")
-    @ApiImplicitParam(name = "uid", value = "用户id(必填)", required = true, dataType = "String")
-    @PutMapping("/{uid}")
-    public Result updateUser(@PathVariable String uid, @RequestBody User user) {
-        logger.info("user.update parameter is [{}]",JSON.toJSON(user));
-        return userService.update(uid, user);
-    }
-
-    @ApiOperation(value = "通过id查询用户", notes = "通过id添加用户")
-    @GetMapping(value = "/{uid}")
-    public Result queryUser(@PathVariable String uid) {
-        logger.info("user.add parameter is [{}]",JSON.toJSON(uid));
-        return  userService.queryById(uid);
-    }
-
-    @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
-    @GetMapping()
-    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable) {
-        return userService.findAllUserDto(pageable);
-    }
-
-
-    @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
-    @PostMapping("/pageQuery")
-    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable,@RequestBody User user) {
-        return userService.dynamicQueryUser(pageable,user);
-    }
-
 
 
 }

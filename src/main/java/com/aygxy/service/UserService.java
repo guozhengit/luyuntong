@@ -18,11 +18,11 @@ public interface UserService {
     Result deleteByOne(String uid);
     //查询用户
     Result queryById(String uid);
-
+    //编辑用户
     Result update(String uid, User user);
-
-    Result findAllUserDto(Pageable pageable);
-
-    Result dynamicQueryUser(Pageable pageable,User user);
+    //分页查询
+    Result findAll(Pageable pageable);
+    //动态查询
+    Result dynamicQuery(Pageable pageable,User user);
 
 }

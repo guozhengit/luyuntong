@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date: 2019/4/8-0:07
  */
 @RestController
-@Api(value = "用户Controller")
+@Api(value = "用户管理")
 @RequestMapping("/users")
 public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -48,7 +48,7 @@ public class UserController {
     @DeleteMapping("/{uid}")
     public Result deleteUser(@PathVariable String  uid) {
         logger.info("user.delete parameter is [{}]",JSON.toJSON(uid));
-        return userService.queryById(uid);
+        return userService.deleteByOne(uid);
     }
 
     @ApiOperation(value = "修改用户", notes = "通过id修改用户")
@@ -69,14 +69,14 @@ public class UserController {
     @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
     @GetMapping()
     public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable) {
-        return userService.findAllUserDto(pageable);
+        return userService.findAll(pageable);
     }
 
 
     @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
     @PostMapping("/pageQuery")
     public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable,@RequestBody User user) {
-        return userService.dynamicQueryUser(pageable,user);
+        return userService.dynamicQuery(pageable,user);
     }
 
 }

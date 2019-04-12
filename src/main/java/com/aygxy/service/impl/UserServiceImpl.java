@@ -99,7 +99,7 @@ public class  UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Result findAllUserDto(Pageable pageable) {
+    public Result findAll(Pageable pageable) {
         QUser user = QUser.user;
         List<UserDTO> dtoList = jpaQueryFactory
                 .select(
@@ -131,7 +131,7 @@ public class  UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result dynamicQueryUser(Pageable pageable, User user) {
+    public Result dynamicQuery(Pageable pageable, User user) {
         QUser qUser = QUser.user;
         //初始化组装条件(类似where 1=1)
         Predicate predicate =  qUser.isNotNull().or(qUser.isNull());
