@@ -16,6 +16,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * @Description: 用户控制类
@@ -51,6 +53,14 @@ public class UserController {
         return userService.deleteByOne(uid);
     }
 
+    @ApiOperation(value = "删除用户", notes = "批量删除")
+    @ApiImplicitParam(name = "uid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("user.delete parameter is [{}]",JSON.toJSON(ids));
+        return userService.deleteBatch(ids);
+    }
+
     @ApiOperation(value = "修改用户", notes = "通过id修改用户")
     @ApiImplicitParam(name = "uid", value = "用户id(必填)", required = true, dataType = "String")
     @PutMapping("/{uid}")
@@ -68,14 +78,14 @@ public class UserController {
 
     @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
     @GetMapping()
-    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable) {
+    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable) {
         return userService.findAll(pageable);
     }
 
 
     @ApiOperation(value = "查询用户", notes = "分页查询部分用户")
     @PostMapping("/pageQuery")
-    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.ASC) Pageable pageable,@RequestBody User user) {
+    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,@RequestBody User user) {
         return userService.dynamicQuery(pageable,user);
     }
 

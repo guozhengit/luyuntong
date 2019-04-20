@@ -2,7 +2,12 @@ package com.aygxy.jpa.repository;
 
 import com.aygxy.jpa.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @Description: user实体数据查询
@@ -12,4 +17,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User,String>{
 
+    @Modifying
+    @Transactional
+    @Query("delete from User s where s.id in (?1)")
+    void deleteAll(List<String> ids);
 }

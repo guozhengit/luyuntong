@@ -1,19 +1,12 @@
 package com.aygxy.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.aygxy.service.UserService;
 import com.aygxy.base.Result;
-import com.aygxy.jpa.entity.User;
+import com.aygxy.jpa.entity.Driver;
+import com.aygxy.service.DriverService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -27,5 +20,25 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/driver")
 public class DriverController {
     private static Logger logger = LoggerFactory.getLogger(DriverController.class);
+
+    @Autowired
+    DriverService driverService;
+    //http://127.0.0.1:8080/driver/
+    @PostMapping("/")
+    public Result addDriver(@RequestBody Driver driver){
+        //调用业务层
+        Driver driver1 = driverService.addDriver(driver);
+        return new Result("0","添加成功",driver1);
+    }
+
+    @DeleteMapping()
+    /*@PathVariable 可以来映射 URL 中的占位符到目标方法的参数中.
+       uid = XXXXXXXXXXXXXXXXXXX
+    * 例：http//localhost:8080?uid
+    * */
+    public Result deleteDriverById(@PathVariable String uid){
+            return driverService.deleteByUid(uid);
+    }
+
 
 }

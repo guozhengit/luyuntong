@@ -1,25 +1,26 @@
 package com.aygxy.service.impl;
 
-import com.aygxy.exception.BusinessException;
-import com.aygxy.jpa.entity.QUser;
-import com.aygxy.service.UserService;
 import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
+import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.bean.UserDTO;
+import com.aygxy.jpa.entity.QUser;
 import com.aygxy.jpa.entity.User;
 import com.aygxy.jpa.repository.UserRepository;
+import com.aygxy.service.UserService;
 import com.aygxy.util.BeanUtils;
 import com.aygxy.util.SingleTonUtil;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ import java.util.stream.Collectors;
  * @Date: 2019/4/8-0:13
  */
 @Service
-public class  UserServiceImpl implements UserService {
+public class  UserServiceImpl extends BaseServiceImpl implements UserService{
 
     private final UserRepository userRepository;
 
@@ -46,7 +47,6 @@ public class  UserServiceImpl implements UserService {
     @Override
     public Result addByOne( User userEntity) {
         try {
-            userEntity.setCreateTime(new Date());
             User user = userRepository.save(userEntity);
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,user);
         }catch (BusinessException e){
@@ -70,10 +70,10 @@ public class  UserServiceImpl implements UserService {
     public Result queryById(String uid)  {
         Optional<User> optional = userRepository.findById(uid);
         User user = optional.orElse(null);
-        if (StringUtils.isEmpty(user)){
+        if (user == null) {
             throw new BusinessException(PhysicalConstants.REQUE_UNSUCCESS_CN);
-        }else {
-            return new Result<>(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,user);
+        } else {
+            return new Result<>(PhysicalConstants.REQUE_SUCCESS, PhysicalConstants.REQUE_SUCCESS_CN, user);
         }
     }
 
@@ -82,7 +82,6 @@ public class  UserServiceImpl implements UserService {
         SingleTonUtil.INSTANCE.test();
         Optional<User> optional = userRepository.findById(uid);
         if (optional.isPresent()) {
-            user.setUpdateTime(new Date());
             User entity = optional.get();
             BeanUtils.copyProperties(user, entity);
             User user1 = userRepository.save(entity);
@@ -136,18 +135,32 @@ public class  UserServiceImpl implements UserService {
         //初始化组装条件(类似where 1=1)
         Predicate predicate =  qUser.isNotNull().or(qUser.isNull());
         //执行动态条件拼装
-        predicate = user.getName() == null ? predicate :  ExpressionUtils.and( predicate,qUser.name.eq(user.getName()));
-        predicate = user.getId() == null ? predicate :  ExpressionUtils.and( predicate,qUser.id.eq(user.getId()));
-        predicate = user.getAge() == null ? predicate :  ExpressionUtils.and( predicate,qUser.age.eq(user.getAge()));
-        predicate = user.getGender() == null ? predicate :  ExpressionUtils.and( predicate,qUser.gender.eq(user.getGender()));
-        predicate = user.getBirthDay() == null ? predicate :  ExpressionUtils.and( predicate,qUser.birthDay.eq(user.getBirthDay()));
+        predicate = StringUtils.isBlank(user.getName()) ? predicate :  ExpressionUtils.and( predicate,qUser.name.eq(user.getName()));
+        predicate = StringUtils.isBlank(user.getId()) ? predicate :  ExpressionUtils.and( predicate,qUser.id.eq(user.getId()));
+        predicate = StringUtils.isBlank(user.getAge()) ? predicate :  ExpressionUtils.and( predicate,qUser.age.eq(user.getAge()));
+        predicate = StringUtils.isBlank(user.getGender()) ? predicate :  ExpressionUtils.and( predicate,qUser.gender.eq(user.getGender()));
+        predicate = StringUtils.isBlank(user.getBirthDay()) ? predicate :  ExpressionUtils.and( predicate,qUser.birthDay.eq(user.getBirthDay()));
         predicate = user.getCreateTime() == null ? predicate :  ExpressionUtils.and( predicate,qUser.createTime.eq(user.getCreateTime()));
+        //查询列表
         List<User> list = jpaQueryFactory
                 .selectFrom(qUser)
                 .where(predicate)               //执行条件
-                .groupBy(qUser.age)           //执行分组
-                .having(qUser.age.between("10","50"))//10-50间
+                .offset(pageable.getOffset())
+                .orderBy(qUser.createTime.desc())
+                .limit(pageable.getPageSize())
                 .fetch();
-        return new  Result<>(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,list);
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qUser)
+                .where(predicate)
+                .fetchCount();
+        Page<User> pageUser = new PageImpl<>(list, pageable, count);
+        return new  Result<>(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN, pageUser);
+    }
+
+    @Override
+    public Result deleteBatch(List<String> ids) {
+        userRepository.deleteAll(ids);
+        return null;
     }
 }

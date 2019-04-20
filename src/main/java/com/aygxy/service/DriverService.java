@@ -11,14 +11,7 @@ import org.springframework.data.domain.Pageable;
  */
 public interface DriverService {
 
-    ////添加司机
-    //Result add(Driver driver);
-    ////删除司机
-    //Result delete(String uid);
-    ////编辑司机信息
-    //Result update(String uid,Driver driver);
-    ////分页查询
-    //Result findAll(Pageable pageable);
-    ////动态查询
-    //Result dynamicQuery(Pageable pageable,Driver driver);
+    Driver addDriver(Driver driver);
+
+    Result deleteByUid(String uid);
 }
