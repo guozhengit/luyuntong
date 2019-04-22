@@ -4,6 +4,8 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Authority;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * @Description: 业务实现层接口
  * @Author: xmf
@@ -11,14 +13,14 @@ import org.springframework.data.domain.Pageable;
  */
 public interface AuthorityService {
 
-    ////添加
-    //Result add(Authority authority);
-    ////删除
-    //Result delete(String uid);
-    ////编辑
-    //Result update(String uid, Authority authority);
-    ////分页
-    //Result findAll(Pageable pageable);
-    ////动态
-    //Result dynamicQuery(Pageable pageable,Authority authority);
+    //添加权限信息
+    Result add(Authority authority);
+    //删除权限信息
+    Result delete(String id);
+    //批量删除
+    Result deleteBatch(List<String> ids);
+    //编辑权限信息
+    Result update(String id,Authority authority);
+    //动态查询
+    Result dynamicQuery(Pageable pageable,Authority authority);
 }

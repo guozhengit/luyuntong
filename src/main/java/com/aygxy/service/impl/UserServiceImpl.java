@@ -79,7 +79,6 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
 
     @Override
     public Result update(String uid, User user) {
-        SingleTonUtil.INSTANCE.test();
         Optional<User> optional = userRepository.findById(uid);
         if (optional.isPresent()) {
             User entity = optional.get();
@@ -161,6 +160,6 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
     @Override
     public Result deleteBatch(List<String> ids) {
         userRepository.deleteAll(ids);
-        return null;
+        return new Result(PhysicalConstants.DELETE_SUCCESS,PhysicalConstants.DELETE_SUCCESS_CN);
     }
 }

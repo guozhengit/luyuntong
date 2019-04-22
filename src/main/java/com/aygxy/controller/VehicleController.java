@@ -1,9 +1,11 @@
 package com.aygxy.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.aygxy.jpa.entity.Vehicle;
 import com.aygxy.service.UserService;
 import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.User;
+import com.aygxy.service.VehicleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -28,6 +30,39 @@ import org.springframework.web.bind.annotation.*;
 public class VehicleController {
     private static Logger logger = LoggerFactory.getLogger(VehicleController.class);
 
+    @Autowired
+    VehicleService vehicleService;
 
+    @ApiOperation(value = "添加车辆信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "id必填", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "code", value = "车牌号必填", required = true, dataType = "String")})
+    @PostMapping()
+    public Result addUser(@RequestBody Vehicle vehicle) {
+        logger.info("user.add parameter is [{}]",JSON.toJSON(vehicle));
+        return vehicleService.add(vehicle);
+    }
+
+    @ApiOperation(value = "删除车辆信息", notes = "通过id删除用户")
+    @ApiImplicitParam(name = "id", value = "id必填", required = true, dataType = "String")
+    @DeleteMapping("/{id}")
+    public Result deleteUser(@PathVariable String  id) {
+        logger.info("user.delete parameter is [{}]",JSON.toJSON(id));
+        return vehicleService.delete(id);
+    }
+
+
+    @ApiOperation(value = "编辑车辆信息", notes = "通过id编辑车辆")
+    @PutMapping("/{id}")
+    public Result updateUser(@PathVariable String id, @RequestBody Vehicle vehicle) {
+        logger.info("user.update parameter is [{}]",JSON.toJSON(vehicle));
+        return vehicleService.update(id, vehicle);
+    }
+
+    @ApiOperation(value = "查询车辆", notes = "分页动态查询车辆信息")
+    @PostMapping("/pageQuery")
+    public Result pageUser(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,@RequestBody Vehicle vehicle) {
+        return vehicleService.dynamicQuery(pageable,vehicle);
+    }
 
 }

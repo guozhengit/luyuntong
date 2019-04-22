@@ -27,8 +27,7 @@ public class DriverController {
     @PostMapping("/")
     public Result addDriver(@RequestBody Driver driver){
         //调用业务层
-        Driver driver1 = driverService.addDriver(driver);
-        return new Result("0","添加成功",driver1);
+        return driverService.add(driver);
     }
 
     @DeleteMapping()
@@ -37,7 +36,7 @@ public class DriverController {
     * 例：http//localhost:8080?uid
     * */
     public Result deleteDriverById(@PathVariable String uid){
-            return driverService.deleteByUid(uid);
+            return driverService.delete(uid);
     }
 
 
