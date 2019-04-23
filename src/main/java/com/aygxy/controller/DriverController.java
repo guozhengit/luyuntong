@@ -1,17 +1,22 @@
 package com.aygxy.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Driver;
 import com.aygxy.service.DriverService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 
 /**
- * @Description: 用户控制类
+ * @Description: 司机管理控制类
  * @Author: xmf
  * @Date: 2019/4/8-0:07
  */
@@ -23,21 +28,35 @@ public class DriverController {
 
     @Autowired
     DriverService driverService;
-    //http://127.0.0.1:8080/driver/
-    @PostMapping("/")
-    public Result addDriver(@RequestBody Driver driver){
-        //调用业务层
+    
+    @ApiOperation(value = "添加司机信息")
+    @PostMapping()
+    public Result addDriver(@RequestBody Driver driver) {
+        logger.info("driver.add parameter is [{}]",JSON.toJSON(driver));
         return driverService.add(driver);
     }
 
-    @DeleteMapping()
-    /*@PathVariable 可以来映射 URL 中的占位符到目标方法的参数中.
-       uid = XXXXXXXXXXXXXXXXXXX
-    * 例：http//localhost:8080?uid
-    * */
-    public Result deleteDriverById(@PathVariable String uid){
-            return driverService.delete(uid);
+    @ApiOperation(value = "删除司机信息", notes = "通过id删除用户")
+    @DeleteMapping("/{id}")
+    public Result deleteDriver(@PathVariable String  id) {
+        logger.info("driver.delete parameter is [{}]",JSON.toJSON(id));
+        return driverService.delete(id);
     }
+
+
+    @ApiOperation(value = "编辑司机信息", notes = "通过id编辑司机")
+    @PutMapping("/{id}")
+    public Result updateDriver(@PathVariable String id, @RequestBody Driver driver) {
+        logger.info("driver.update parameter is [{}]",JSON.toJSON(driver));
+        return driverService.update(id, driver);
+    }
+
+    @ApiOperation(value = "查询司机", notes = "分页动态查询司机信息")
+    @PostMapping("/pageQuery")
+    public Result pageDriver(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable, @RequestBody Driver driver) {
+        return driverService.dynamicQuery(pageable,driver);
+    }
+
 
 
 }
