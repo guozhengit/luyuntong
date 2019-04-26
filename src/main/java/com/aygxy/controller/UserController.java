@@ -56,7 +56,7 @@ public class UserController {
     @ApiOperation(value = "删除用户", notes = "批量删除")
     @ApiImplicitParam(name = "uid", required = true, dataType = "String[]")
     @PostMapping("/deleteBatch")
-    public Result deleteUser(@RequestBody List<String> ids) {
+    public Result deleteUser(@RequestParam("ids") List<String> ids) {
         logger.info("user.delete parameter is [{}]",JSON.toJSON(ids));
         return userService.deleteBatch(ids);
     }

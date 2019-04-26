@@ -4,11 +4,17 @@ import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.entity.Department;
+import com.aygxy.jpa.entity.QDepartment;
 import com.aygxy.jpa.repository.DepartmentRepository;
 import com.aygxy.service.DepartmentService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +75,17 @@ public class DepartmentServiceimpl implements DepartmentService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, Department department) {
-        return null;
+        QDepartment qDepartment = QDepartment.department;
+        Predicate predicate = qDepartment.isNotNull().or(qDepartment.isNull());
+        predicate = StringUtils.isBlank(department.getDescrition()) ? predicate:ExpressionUtils.and(predicate,qDepartment.descrition.eq(department.getDescrition()));
+        List<Department> list = jpaQueryFactory.selectFrom(qDepartment).where(predicate).offset(pageable.getOffset()).orderBy(qDepartment.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qDepartment)
+                .where(predicate)
+                .fetchCount();
+        Page<Department> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }

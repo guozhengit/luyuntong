@@ -4,12 +4,18 @@ import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.entity.Authority;
+import com.aygxy.jpa.entity.QAuthority;
 import com.aygxy.jpa.entity.User;
 import com.aygxy.jpa.repository.AuthorityRepository;
 import com.aygxy.service.AuthorityService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +76,17 @@ public class AuthorityServiceimpl implements AuthorityService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, Authority authority) {
-        return null;
+        QAuthority qAuthority = QAuthority.authority;
+        Predicate predicate = qAuthority.isNotNull().or(qAuthority.isNull());
+        predicate = StringUtils.isBlank(authority.getName()) ? predicate:ExpressionUtils.and(predicate,qAuthority.name.eq(authority.getName()));
+        List<Authority> list = jpaQueryFactory.selectFrom(qAuthority).where(predicate).offset(pageable.getOffset()).orderBy(qAuthority.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qAuthority)
+                .where(predicate)
+                .fetchCount();
+        Page<Authority> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }

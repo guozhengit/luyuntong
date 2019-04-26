@@ -5,11 +5,17 @@ import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.entity.DetailPayment;
 import com.aygxy.jpa.entity.DetailPayment;
+import com.aygxy.jpa.entity.QDetailPayment;
 import com.aygxy.jpa.repository.DetailPaymentRepository;
 import com.aygxy.service.DetailPaymentService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +76,18 @@ public class DetailPaymentServiceimpl implements DetailPaymentService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, DetailPayment detailPayment) {
-        return null;
+        QDetailPayment qDetailPayment = QDetailPayment.detailPayment;
+        Predicate predicate = qDetailPayment.isNotNull().or(qDetailPayment.isNull());
+        predicate = StringUtils.isBlank(detailPayment.getStatus()) ? predicate:ExpressionUtils.and(predicate,qDetailPayment.status.eq(detailPayment.getStatus()));
+        predicate = StringUtils.isBlank(detailPayment.getFeeType())?predicate:ExpressionUtils.and(predicate,qDetailPayment.feeType.eq(detailPayment.getFeeType()));
+        List<DetailPayment> list = jpaQueryFactory.selectFrom(qDetailPayment).where(predicate).offset(pageable.getOffset()).orderBy(qDetailPayment.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qDetailPayment)
+                .where(predicate)
+                .fetchCount();
+        Page<DetailPayment> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }

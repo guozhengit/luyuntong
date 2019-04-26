@@ -3,13 +3,20 @@ package com.aygxy.service.impl;
 import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
+import com.aygxy.jpa.entity.QStation;
 import com.aygxy.jpa.entity.Station;
 import com.aygxy.jpa.entity.Station;
+import com.aygxy.jpa.entity.Vehicle;
 import com.aygxy.jpa.repository.StationRepository;
 import com.aygxy.service.StationService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -72,6 +79,18 @@ public class StationServiceimpl implements StationService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, Station station) {
-        return null;
+        QStation qStation = QStation.station;
+        Predicate predicate = qStation.isNotNull().or(qStation.isNull());
+        predicate = StringUtils.isBlank(station.getCode()) ? predicate:ExpressionUtils.and(predicate,qStation.code.eq(station.getCode()));
+        predicate = StringUtils.isBlank(station.getPostCode())?predicate:ExpressionUtils.and(predicate,qStation.postCode.eq(station.getPostCode()));
+        List<Station> list = jpaQueryFactory.selectFrom(qStation).where(predicate).offset(pageable.getOffset()).orderBy(qStation.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qStation)
+                .where(predicate)
+                .fetchCount();
+        Page<Station> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }

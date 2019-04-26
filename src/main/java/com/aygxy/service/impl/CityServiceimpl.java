@@ -4,12 +4,17 @@ import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.entity.City;
-import com.aygxy.jpa.entity.City;
+import com.aygxy.jpa.entity.QCity;
 import com.aygxy.jpa.repository.CityRepository;
 import com.aygxy.service.CityService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +74,17 @@ public class CityServiceimpl implements CityService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, City city) {
-        return null;
+        QCity qCity = QCity.city;
+        Predicate predicate = qCity.isNotNull().or(qCity.isNull());
+        predicate = StringUtils.isBlank(city.getDistrict())?predicate:ExpressionUtils.and(predicate,qCity.district.eq(city.getDistrict()));
+        List<City> list = jpaQueryFactory.selectFrom(qCity).where(predicate).offset(pageable.getOffset()).orderBy(qCity.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qCity)
+                .where(predicate)
+                .fetchCount();
+        Page<City> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }

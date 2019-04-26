@@ -4,11 +4,17 @@ import com.aygxy.base.PhysicalConstants;
 import com.aygxy.base.Result;
 import com.aygxy.exception.BusinessException;
 import com.aygxy.jpa.entity.Menu;
+import com.aygxy.jpa.entity.QMenu;
 import com.aygxy.jpa.repository.MenuRepository;
 import com.aygxy.service.MenuService;
 import com.aygxy.util.BeanUtils;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +75,18 @@ public class MenuServiceimpl implements MenuService {
 
     @Override
     public Result dynamicQuery(Pageable pageable, Menu menu) {
-        return null;
+        QMenu qMenu = QMenu.menu;
+        Predicate predicate = qMenu.isNotNull().or(qMenu.isNull());
+        predicate = StringUtils.isBlank(menu.getId()) ? predicate:ExpressionUtils.and(predicate,qMenu.id.eq(menu.getId()));
+        predicate = StringUtils.isBlank(menu.getName())?predicate:ExpressionUtils.and(predicate,qMenu.name.eq(menu.getName()));
+        List<Menu> list = jpaQueryFactory.selectFrom(qMenu).where(predicate).offset(pageable.getOffset()).orderBy(qMenu.createTime.desc())
+                .limit(pageable.getPageSize()).fetch();
+        //查询条数
+        Long count = jpaQueryFactory
+                .selectFrom(qMenu)
+                .where(predicate)
+                .fetchCount();
+        Page<Menu> page = new PageImpl<>(list, pageable, count);
+        return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 }
