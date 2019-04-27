@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.xmf.mybatis.mapper.PhysicalSTypegroupMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.xmf.mybatis.entity.PhysicalSTypegroup" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="type_group_code" property="typeGroupCode" jdbcType="VARCHAR" />
+    <result column="type_group_name" property="typeGroupName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type_group_code, type_group_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_s_typegroup
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_s_typegroup
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalSTypegroup" >
+    insert into physical_s_typegroup (id, type_group_code, type_group_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{typeGroupCode,jdbcType=VARCHAR}, #{typeGroupName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalSTypegroup" >
+    insert into physical_s_typegroup
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="typeGroupCode != null" >
+        type_group_code,
+      </if>
+      <if test="typeGroupName != null" >
+        type_group_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="typeGroupCode != null" >
+        #{typeGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="typeGroupName != null" >
+        #{typeGroupName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalSTypegroup" >
+    update physical_s_typegroup
+    <set >
+      <if test="typeGroupCode != null" >
+        type_group_code = #{typeGroupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="typeGroupName != null" >
+        type_group_name = #{typeGroupName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalSTypegroup" >
+    update physical_s_typegroup
+    set type_group_code = #{typeGroupCode,jdbcType=VARCHAR},
+      type_group_name = #{typeGroupName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

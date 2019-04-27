@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.xmf.mybatis.mapper.PhysicalDetilGoodsInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.xmf.mybatis.entity.PhysicalDetilGoodsInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="carrier_cost" property="carrierCost" jdbcType="DECIMAL" />
+    <result column="deliver_cost" property="deliverCost" jdbcType="DECIMAL" />
+    <result column="high" property="high" jdbcType="VARCHAR" />
+    <result column="is_dangerous" property="isDangerous" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="volume" property="volume" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="bill_id" property="billId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, name, carrier_cost, deliver_cost, high, is_dangerous, 
+    price, quantity, total_price, type, volume, weight, bill_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_detil_goods_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_detil_goods_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalDetilGoodsInfo" >
+    insert into physical_detil_goods_info (id, create_time, update_time, 
+      name, carrier_cost, deliver_cost, 
+      high, is_dangerous, price, 
+      quantity, total_price, type, 
+      volume, weight, bill_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{carrierCost,jdbcType=DECIMAL}, #{deliverCost,jdbcType=DECIMAL}, 
+      #{high,jdbcType=VARCHAR}, #{isDangerous,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{quantity,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, 
+      #{volume,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{billId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalDetilGoodsInfo" >
+    insert into physical_detil_goods_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="carrierCost != null" >
+        carrier_cost,
+      </if>
+      <if test="deliverCost != null" >
+        deliver_cost,
+      </if>
+      <if test="high != null" >
+        high,
+      </if>
+      <if test="isDangerous != null" >
+        is_dangerous,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="volume != null" >
+        volume,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="billId != null" >
+        bill_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierCost != null" >
+        #{carrierCost,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverCost != null" >
+        #{deliverCost,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null" >
+        #{high,jdbcType=VARCHAR},
+      </if>
+      <if test="isDangerous != null" >
+        #{isDangerous,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="billId != null" >
+        #{billId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalDetilGoodsInfo" >
+    update physical_detil_goods_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierCost != null" >
+        carrier_cost = #{carrierCost,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverCost != null" >
+        deliver_cost = #{deliverCost,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null" >
+        high = #{high,jdbcType=VARCHAR},
+      </if>
+      <if test="isDangerous != null" >
+        is_dangerous = #{isDangerous,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        volume = #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="billId != null" >
+        bill_id = #{billId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalDetilGoodsInfo" >
+    update physical_detil_goods_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      carrier_cost = #{carrierCost,jdbcType=DECIMAL},
+      deliver_cost = #{deliverCost,jdbcType=DECIMAL},
+      high = #{high,jdbcType=VARCHAR},
+      is_dangerous = #{isDangerous,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      quantity = #{quantity,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      type = #{type,jdbcType=VARCHAR},
+      volume = #{volume,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      bill_id = #{billId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

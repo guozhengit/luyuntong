@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.xmf.mybatis.mapper.PhysicalRouteInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.xmf.mybatis.entity.PhysicalRouteInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="city_distance" property="cityDistance" jdbcType="VARCHAR" />
+    <result column="start_city" property="startCity" jdbcType="VARCHAR" />
+    <result column="start_station" property="startStation" jdbcType="VARCHAR" />
+    <result column="station_distance" property="stationDistance" jdbcType="VARCHAR" />
+    <result column="target_city" property="targetCity" jdbcType="VARCHAR" />
+    <result column="target_station" property="targetStation" jdbcType="VARCHAR" />
+    <result column="transfer_city" property="transferCity" jdbcType="VARCHAR" />
+    <result column="transfer_station" property="transferStation" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, city_distance, start_city, start_station, station_distance, 
+    target_city, target_station, transfer_city, transfer_station
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_route_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_route_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalRouteInfo" >
+    insert into physical_route_info (id, create_time, update_time, 
+      city_distance, start_city, start_station, 
+      station_distance, target_city, target_station, 
+      transfer_city, transfer_station)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{cityDistance,jdbcType=VARCHAR}, #{startCity,jdbcType=VARCHAR}, #{startStation,jdbcType=VARCHAR}, 
+      #{stationDistance,jdbcType=VARCHAR}, #{targetCity,jdbcType=VARCHAR}, #{targetStation,jdbcType=VARCHAR}, 
+      #{transferCity,jdbcType=VARCHAR}, #{transferStation,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalRouteInfo" >
+    insert into physical_route_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="cityDistance != null" >
+        city_distance,
+      </if>
+      <if test="startCity != null" >
+        start_city,
+      </if>
+      <if test="startStation != null" >
+        start_station,
+      </if>
+      <if test="stationDistance != null" >
+        station_distance,
+      </if>
+      <if test="targetCity != null" >
+        target_city,
+      </if>
+      <if test="targetStation != null" >
+        target_station,
+      </if>
+      <if test="transferCity != null" >
+        transfer_city,
+      </if>
+      <if test="transferStation != null" >
+        transfer_station,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityDistance != null" >
+        #{cityDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="startCity != null" >
+        #{startCity,jdbcType=VARCHAR},
+      </if>
+      <if test="startStation != null" >
+        #{startStation,jdbcType=VARCHAR},
+      </if>
+      <if test="stationDistance != null" >
+        #{stationDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="targetCity != null" >
+        #{targetCity,jdbcType=VARCHAR},
+      </if>
+      <if test="targetStation != null" >
+        #{targetStation,jdbcType=VARCHAR},
+      </if>
+      <if test="transferCity != null" >
+        #{transferCity,jdbcType=VARCHAR},
+      </if>
+      <if test="transferStation != null" >
+        #{transferStation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalRouteInfo" >
+    update physical_route_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityDistance != null" >
+        city_distance = #{cityDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="startCity != null" >
+        start_city = #{startCity,jdbcType=VARCHAR},
+      </if>
+      <if test="startStation != null" >
+        start_station = #{startStation,jdbcType=VARCHAR},
+      </if>
+      <if test="stationDistance != null" >
+        station_distance = #{stationDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="targetCity != null" >
+        target_city = #{targetCity,jdbcType=VARCHAR},
+      </if>
+      <if test="targetStation != null" >
+        target_station = #{targetStation,jdbcType=VARCHAR},
+      </if>
+      <if test="transferCity != null" >
+        transfer_city = #{transferCity,jdbcType=VARCHAR},
+      </if>
+      <if test="transferStation != null" >
+        transfer_station = #{transferStation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.xmf.mybatis.entity.PhysicalRouteInfo" >
+    update physical_route_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      city_distance = #{cityDistance,jdbcType=VARCHAR},
+      start_city = #{startCity,jdbcType=VARCHAR},
+      start_station = #{startStation,jdbcType=VARCHAR},
+      station_distance = #{stationDistance,jdbcType=VARCHAR},
+      target_city = #{targetCity,jdbcType=VARCHAR},
+      target_station = #{targetStation,jdbcType=VARCHAR},
+      transfer_city = #{transferCity,jdbcType=VARCHAR},
+      transfer_station = #{transferStation,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
