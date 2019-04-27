@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Station extends BaseNamedJpaEntity {
     //站点id  //站点名称
     //站点编号
-    @Column(name = "code",columnDefinition = "varchar(50)")
+    @Column(name = "station_code",columnDefinition = "varchar(50)")
     private String code;
     //站点负责人
     @Column(name = "principal",columnDefinition = "varchar(50)")
@@ -34,6 +34,6 @@ public class Station extends BaseNamedJpaEntity {
     private String postCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id")
+    @JoinColumn(name = "city_code")
     private City city;
 }

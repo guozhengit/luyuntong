@@ -17,6 +17,9 @@ import javax.persistence.*;
 @Table(name = "physical_driver_info")
 public class Driver extends BaseNamedJpaEntity {
     //司机id //司机名称
+    //司机编号
+    @Column(name = "driver_code",columnDefinition = "varchar(100)")
+    private String code;
     //身份证号
     @Column(name = "id_card",columnDefinition = "varchar(50)")
     private String idCard;
@@ -49,7 +52,7 @@ public class Driver extends BaseNamedJpaEntity {
     private String bizLicence;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicle_id")//Driver中的id字段参考Vehicle表中的id字段
+    @JoinColumn(name = "vehicle_code",insertable = false,updatable = false)//Driver中的id字段参考Vehicle表中的id字段
     private Vehicle vehicle;
 
 

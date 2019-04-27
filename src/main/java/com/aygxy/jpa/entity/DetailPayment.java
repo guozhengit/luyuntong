@@ -18,7 +18,10 @@ import java.math.BigDecimal;
 @Table(name = "physical_detil_payment_info")
 public class DetailPayment extends BaseJpaEntity {
     //收支明细id
-    //费用类型 --
+    //部门编号
+    @Column(name = "payment_code",columnDefinition = "varchar(100)")
+    private String code;
+    //费用类型
     @Column(name = "fee_type",columnDefinition = "varchar(50)")
     private String feeType;
     //收支状态
@@ -38,6 +41,6 @@ public class DetailPayment extends BaseJpaEntity {
     private BigDecimal totalAmount;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="bill_id")
+    @JoinColumn(name="bill_code")
     private Bill bill;
 }

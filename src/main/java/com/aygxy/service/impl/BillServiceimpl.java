@@ -83,7 +83,6 @@ public class BillServiceimpl implements BillService {
         predicate = StringUtils.isBlank(bill.getGatherType())?predicate:ExpressionUtils.and(predicate,qBill.gatherType.eq(bill.getGatherType()));
         predicate = StringUtils.isBlank(bill.getSalesMan())?predicate:ExpressionUtils.and(predicate,qBill.salesMan.eq(bill.getSalesMan()));
         predicate = StringUtils.isBlank(bill.getType())?predicate:ExpressionUtils.and(predicate,qBill.type.eq(bill.getType()));
-        predicate = StringUtils.isBlank(bill.getCustomerCode())?predicate:ExpressionUtils.and(predicate,qBill.customerCode.eq(bill.getCustomerCode()));
         predicate = StringUtils.isBlank(bill.getVehicleCode())?predicate:ExpressionUtils.and(predicate,qBill.vehicleCode.eq(bill.getVehicleCode()));
         predicate = StringUtils.isBlank(bill.getServiceType())?predicate:ExpressionUtils.and(predicate,qBill.serviceType.eq(bill.getServiceType()));
         predicate = StringUtils.isBlank(bill.getSalesStation())?predicate:ExpressionUtils.and(predicate,qBill.salesStation.eq(bill.getSalesStation()));

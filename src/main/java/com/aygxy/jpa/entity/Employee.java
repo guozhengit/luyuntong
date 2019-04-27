@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 public class Employee extends BaseNamedJpaEntity {
     //职员id //职员姓名
     //职员编号
-    @Column(name = "code",columnDefinition = "varchar(50)")
+    @Column(name = "employee_code",columnDefinition = "varchar(50)")
     private String code;
     //生日
     @Column(name = "birthday",columnDefinition = "varchar(50)")
@@ -45,7 +45,8 @@ public class Employee extends BaseNamedJpaEntity {
     private String stationCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id",insertable = false, updatable = false) // 在多端（从表的外键）添加外键字段指向一端（主表的主键）的主键字段
+    @JoinColumn(name = "department_code")
+    // 在多端（从表的外键）添加外键字段指向一端（主表的主键）的主键字段
     private Department department;
 
 }

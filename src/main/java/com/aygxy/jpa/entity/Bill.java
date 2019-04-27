@@ -28,7 +28,7 @@ import java.util.Set;
 public class Bill extends BaseJpaEntity {
     ////单据id
     //单据编号
-    @Column(name = "code",columnDefinition = "varchar(50)")
+    @Column(name = "bill_code",columnDefinition = "varchar(50)")
     private String code;
     //单价类型
     @Column(name = "type",columnDefinition = "varchar(50)")
@@ -42,9 +42,6 @@ public class Bill extends BaseJpaEntity {
     //客户姓名
     @Column(name = "customer_property",columnDefinition = "varchar(50)")
     private String customerName;
-    //客户编号
-    @Column(name = "customer_code",columnDefinition = "varchar(50)")
-    private String customerCode;
     //收款类型
     @Column(name = "gather_type",columnDefinition = "varchar(50)")
     private String gatherType;
@@ -160,7 +157,7 @@ public class Bill extends BaseJpaEntity {
 
     //可选属性optional=false,表示customer不能为空。删除单据，不影响客户
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="customer_id")//设置在Bill表中的关联字段(外键)
+    @JoinColumn(name="customer_code")//设置在Bill表中的关联字段(外键)
     private Customer customer;
 
     @OneToMany(fetch=FetchType.EAGER,cascade={CascadeType.REMOVE},mappedBy="bill")

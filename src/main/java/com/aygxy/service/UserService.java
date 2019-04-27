@@ -28,4 +28,6 @@ public interface UserService  extends BaseService{
     Result dynamicQuery(Pageable pageable,User user);
 
     Result deleteBatch(List<String> ids);
+
+    User findByUserCode(String username);
 }

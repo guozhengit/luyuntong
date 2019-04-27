@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -38,6 +39,9 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
     @Autowired
     JPAQueryFactory jpaQueryFactory;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -47,6 +51,8 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
     @Override
     public Result addByOne( User userEntity) {
         try {
+            String password = userEntity.getPassword();
+            userEntity.setPassword(passwordEncoder.encode(password));
             User user = userRepository.save(userEntity);
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,user);
         }catch (BusinessException e){
@@ -161,5 +167,11 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
     public Result deleteBatch(List<String> ids) {
         userRepository.deleteAll(ids);
         return new Result(PhysicalConstants.DELETE_SUCCESS,PhysicalConstants.DELETE_SUCCESS_CN);
+    }
+
+    @Override
+    public User findByUserCode(String username) {
+        Optional<User> optional = userRepository.findByCode(username);
+        return optional.orElse(null);
     }
 }

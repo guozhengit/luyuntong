@@ -20,7 +20,9 @@ import java.util.List;
 @Table(name = "physical_user_info")
 public  class User extends BaseJpaEntity {
     //主键id
-
+    //用户编号
+    @Column(name = "user_code",columnDefinition = "varchar(50)")
+    private String code;
     // 用户名
     @NotEmpty(message = "账号不能为空")
     @Size(min=3, max=20)
@@ -59,7 +61,7 @@ public  class User extends BaseJpaEntity {
     //关联到从表的外键名：主表中用于关联的属性名+下划线+从表的主键列名,即authority_id
     //主表就是关系维护端对应的表，从表就是关系被维护端对应的表
     @ManyToMany
-    @JoinTable(name = "user_authority_info", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
+    @JoinTable(name = "user_authority_info", joinColumns = @JoinColumn(name = "user_code"), inverseJoinColumns = @JoinColumn(name = "authority_code"))
     private List<Authority> authorityList;
 
 }

@@ -69,6 +69,6 @@ public class Vehicle extends BaseNamedJpaEntity {
     // 指定当前表在中间表的外键名称和外键所指向的当前表主键
     // 指定另一方在中间表的外键名称和外键所指向的主键
     @ManyToMany
-    @JoinTable(name = "vehicle_goods_info", joinColumns= {@JoinColumn(name = "vehicle_id")}, inverseJoinColumns= {@JoinColumn(name = "goods_id")})
+    @JoinTable(name = "vehicle_goods_info", joinColumns= {@JoinColumn(name = "vehicle_code")}, inverseJoinColumns= {@JoinColumn(name = "goods_code")})
     private Set<DetailGoods> detailGoodsSet = new HashSet<>();
 }

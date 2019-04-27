@@ -21,7 +21,7 @@ public class Customer extends BaseNamedJpaEntity {
 
     //客户id //客户姓名
     //客户编号
-    @Column(name = "code",columnDefinition = "varchar(50)")
+    @Column(name = "customer_code",columnDefinition = "varchar(50)")
     private String code;
 
     @Column(name = "detail_address",columnDefinition = "varchar(50)")

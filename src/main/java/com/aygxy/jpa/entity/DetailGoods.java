@@ -20,6 +20,8 @@ import java.util.Set;
 @Table(name = "physical_detil_goods_info")
 public class DetailGoods extends BaseNamedJpaEntity {
     //货物id  //货物名称
+    @Column(name = "goods_code",columnDefinition = "varchar(50)")
+    private  String code;
     //货物类型
     @Column(name = "type",columnDefinition = "varchar(50)")
     private String type;
@@ -52,7 +54,7 @@ public class DetailGoods extends BaseNamedJpaEntity {
     private String isDangerous;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="bill_id")
+    @JoinColumn(name="bill_code")
     private Bill bill;
 
     @ManyToMany(mappedBy = "detailGoodsSet")

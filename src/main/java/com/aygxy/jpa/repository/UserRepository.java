@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Description: user实体数据查询
@@ -21,4 +22,6 @@ public interface UserRepository extends JpaRepository<User,String>{
     @Transactional
     @Query("delete from User s where s.id in (?1)")
     void deleteAll(List<String> ids);
+
+    Optional<User> findByCode(String code);
 }

@@ -18,8 +18,11 @@ import java.util.List;
 @Table(name = "physical_authority_info")
 public class Authority extends BaseNamedJpaEntity {
 
+    @Column(name = "authority_code",columnDefinition = "varchar(50)")
+    private String code;
+
     @ManyToMany
-    @JoinTable(name="authority_menu_info", joinColumns=@JoinColumn(name="menu_id"), inverseJoinColumns=@JoinColumn(name="authority_id"))
+    @JoinTable(name="authority_menu_info", joinColumns=@JoinColumn(name="menu_code"), inverseJoinColumns=@JoinColumn(name="authority_code"))
     private List<Menu> menus;
 
     @ManyToMany(mappedBy = "authorityList")

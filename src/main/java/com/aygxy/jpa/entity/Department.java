@@ -19,6 +19,10 @@ import java.util.List;
 @Table(name = "physical_department_info")
 public class Department extends BaseNamedJpaEntity {
     //部门id //部门名称
+
+    //部门编号
+    @Column(name = "department_code",columnDefinition = "varchar(100)")
+    private String code;
     //部门描述
     @Column(name = "descrition",columnDefinition = "varchar(50)")
     private String descrition;

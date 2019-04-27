@@ -19,6 +19,9 @@ import java.util.Set;
 @Table(name = "physical_city_info")
 public class City extends BaseNamedJpaEntity {
     //城市id //城市名称
+    //城市编号
+    @Column(name = "city_code",columnDefinition = "varchar(100)")
+    private String code;
     //城市位置
     @Column(name = "location",columnDefinition = "varchar(50)")
     private String location;

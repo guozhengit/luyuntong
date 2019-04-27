@@ -19,6 +19,9 @@ import java.util.Set;
 @Table(name = "physical_route_info")
 public class Route extends BaseJpaEntity {
     //路线id
+    //路线编号
+    @Column(name = "route_code",columnDefinition = "varchar(50)")
+    private String code;
     //始发城市
     @Column(name = "start_city",columnDefinition = "varchar(50)")
     private String startCity;
@@ -45,7 +48,7 @@ public class Route extends BaseJpaEntity {
     private String transferStation;
 
     @ManyToMany
-    @JoinTable(name="route_city_info", joinColumns=@JoinColumn(name="route_id"), inverseJoinColumns=@JoinColumn(name="city_id"))
+    @JoinTable(name="route_city_info", joinColumns=@JoinColumn(name="route_code"), inverseJoinColumns=@JoinColumn(name="city_code"))
     private Set<City> citySet = new HashSet<>();
 
 }
