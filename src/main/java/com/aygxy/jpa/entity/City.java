@@ -20,16 +20,16 @@ import java.util.Set;
 public class City extends BaseNamedJpaEntity {
     //城市id //城市名称
     //城市编号
-    @Column(name = "city_code",columnDefinition = "varchar(100)")
+    @Column(name = "city_code",columnDefinition = "varchar(200)")
     private String code;
     //城市位置
-    @Column(name = "location",columnDefinition = "varchar(50)")
+    @Column(name = "location",columnDefinition = "varchar(200)")
     private String location;
     //区域
-    @Column(name = "district",columnDefinition = "varchar(50)")
+    @Column(name = "district",columnDefinition = "varchar(200)")
     private String district;
     //所属省份
-    @Column(name = "owner_province",columnDefinition = "varchar(50)")
+    @Column(name = "owner_province",columnDefinition = "varchar(200)")
     private String ownerProvince;
 
     @OneToMany(cascade={CascadeType.REMOVE},mappedBy="city")

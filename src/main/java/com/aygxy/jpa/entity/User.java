@@ -21,33 +21,33 @@ import java.util.List;
 public  class User extends BaseJpaEntity {
     //主键id
     //用户编号
-    @Column(name = "user_code",columnDefinition = "varchar(50)")
+    @Column(name = "user_code",columnDefinition = "varchar(200)")
     private String code;
     // 用户名
     @NotEmpty(message = "账号不能为空")
     @Size(min=3, max=20)
-    @Column(name = "user_name",columnDefinition = "varchar(50)")
+    @Column(name = "user_name",columnDefinition = "varchar(200)")
     private String name;
 
     //用户密码
     @NotEmpty(message = "密码不能为空")
     @Size(max=100)
-    @Column(name = "password",columnDefinition = "varchar(50)")
+    @Column(name = "password",columnDefinition = "varchar(200)")
     private String password;
     //年龄
-    @Column(name = "age",columnDefinition = "varchar(50)")
+    @Column(name = "age",columnDefinition = "varchar(200)")
     private String age;
     //性别
-    @Column(name = "gender",columnDefinition = "varchar(50)")
+    @Column(name = "gender",columnDefinition = "varchar(200)")
     private String gender;
     //生日
-    @Column(name = "birthDay",columnDefinition = "varchar(50)")
+    @Column(name = "birthDay",columnDefinition = "varchar(200)")
     private String birthDay;
     //电话
-    @Column(name = "phone",columnDefinition = "varchar(50)")
+    @Column(name = "phone",columnDefinition = "varchar(200)")
     private String phone;
     //邮箱
-    @Column(name = "email",columnDefinition = "varchar(50)")
+    @Column(name = "email",columnDefinition = "varchar(200)")
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY)

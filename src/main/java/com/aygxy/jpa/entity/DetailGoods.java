@@ -20,10 +20,10 @@ import java.util.Set;
 @Table(name = "physical_detil_goods_info")
 public class DetailGoods extends BaseNamedJpaEntity {
     //货物id  //货物名称
-    @Column(name = "goods_code",columnDefinition = "varchar(50)")
+    @Column(name = "goods_code",columnDefinition = "varchar(200)")
     private  String code;
     //货物类型
-    @Column(name = "type",columnDefinition = "varchar(50)")
+    @Column(name = "type",columnDefinition = "varchar(200)")
     private String type;
     //TODO：货物单件运费 = 运费算法(重点)
     @Column(name = "price",nullable = true, precision=12, scale=2)
@@ -41,16 +41,16 @@ public class DetailGoods extends BaseNamedJpaEntity {
     @Column(name = "quantity")
     private Integer quantity;
     //货物体积
-    @Column(name = "volume",columnDefinition = "varchar(50)")
+    @Column(name = "volume",columnDefinition = "varchar(200)")
     private String volume;
     //货物高度
-    @Column(name = "high",columnDefinition = "varchar(50)")
+    @Column(name = "high",columnDefinition = "varchar(200)")
     private String high;
     //货物重量
-    @Column(name = "weight",columnDefinition = "varchar(50)")
+    @Column(name = "weight",columnDefinition = "varchar(200)")
     private String weight;
     //是否为危险物
-    @Column(name = "is_dangerous",columnDefinition = "varchar(50)")
+    @Column(name = "is_dangerous",columnDefinition = "varchar(200)")
     private String isDangerous;
 
     @ManyToOne(fetch=FetchType.LAZY)

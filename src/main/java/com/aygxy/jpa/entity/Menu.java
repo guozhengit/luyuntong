@@ -21,10 +21,10 @@ public class Menu extends BaseNamedJpaEntity {
     //菜单id  //菜单名称
 
     //菜单编号
-    @Column(name = "menu_code",columnDefinition = "varchar(50)")
+    @Column(name = "menu_code",columnDefinition = "varchar(200)")
     private String code;
     //菜单描述
-    @Column(name = "descrition",columnDefinition = "varchar(50)")
+    @Column(name = "descrition",columnDefinition = "varchar(200)")
     private String descrition;
 
     @ManyToMany(mappedBy = "menus")

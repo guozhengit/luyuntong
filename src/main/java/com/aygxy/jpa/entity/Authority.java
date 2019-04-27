@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "physical_authority_info")
 public class Authority extends BaseNamedJpaEntity {
 
-    @Column(name = "authority_code",columnDefinition = "varchar(50)")
+    @Column(name = "authority_code",columnDefinition = "varchar(200)")
     private String code;
 
     @ManyToMany

@@ -21,34 +21,34 @@ public class Customer extends BaseNamedJpaEntity {
 
     //客户id //客户姓名
     //客户编号
-    @Column(name = "customer_code",columnDefinition = "varchar(50)")
+    @Column(name = "customer_code",columnDefinition = "varchar(200)")
     private String code;
 
-    @Column(name = "detail_address",columnDefinition = "varchar(50)")
+    @Column(name = "detail_address",columnDefinition = "varchar(200)")
     //详细地址
     private String detailAddress;
 
-    @Column(name = "past_code",columnDefinition = "varchar(50)")
+    @Column(name = "past_code",columnDefinition = "varchar(200)")
     //邮编
     private String postCode;
 
-    @Column(name = "link_mobile",columnDefinition = "varchar(50)")
+    @Column(name = "link_mobile",columnDefinition = "varchar(200)")
     //联系电话
     private String linkMobile;
 
-    @Column(name = "type",columnDefinition = "varchar(50)")
+    @Column(name = "type",columnDefinition = "varchar(200)")
     //客户类型
     private String type;
 
-    @Column(name = "enterprise_property",columnDefinition = "varchar(50)")
+    @Column(name = "enterprise_property",columnDefinition = "varchar(200)")
     //企业性质
     private String enterpriseProperty;
 
-    @Column(name = "enterprise_size",columnDefinition = "varchar(50)")
+    @Column(name = "enterprise_size",columnDefinition = "varchar(200)")
     //企业规模
     private String enterpriseSize;
 
-    @Column(name = "email",columnDefinition = "varchar(50)")
+    @Column(name = "email",columnDefinition = "varchar(200)")
     //电子邮箱
     private String eMail;
 

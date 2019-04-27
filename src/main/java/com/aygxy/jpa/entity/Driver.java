@@ -21,34 +21,34 @@ public class Driver extends BaseNamedJpaEntity {
     @Column(name = "driver_code",columnDefinition = "varchar(100)")
     private String code;
     //身份证号
-    @Column(name = "id_card",columnDefinition = "varchar(50)")
+    @Column(name = "id_card",columnDefinition = "varchar(200)")
     private String idCard;
     //籍贯
-    @Column(name = "native_place",columnDefinition = "varchar(50)")
+    @Column(name = "native_place",columnDefinition = "varchar(200)")
     private String nativePlace;
     //站点编号 --StationEntity
-    @Column(name = "station_code",columnDefinition = "varchar(50)")
+    @Column(name = "station_code",columnDefinition = "varchar(200)")
     private String stationCode;
     //电话
-    @Column(name = "phone",columnDefinition = "varchar(50)")
+    @Column(name = "phone",columnDefinition = "varchar(200)")
     private String phone;
     //性别
-    @Column(name = "gender",columnDefinition = "varchar(50)")
+    @Column(name = "gender",columnDefinition = "varchar(200)")
     private String gender;
     //生日
-    @Column(name = "birthday",columnDefinition = "varchar(50)")
+    @Column(name = "birthday",columnDefinition = "varchar(200)")
     private String birthday;
     //地址
-    @Column(name = "address",columnDefinition = "varchar(50)")
+    @Column(name = "address",columnDefinition = "varchar(200)")
     private String address;
     //驾驶证
-    @Column(name = "drive_licence",columnDefinition = "varchar(50)")
+    @Column(name = "drive_licence",columnDefinition = "varchar(200)")
     private String driveLicence;
     //行驶证
-    @Column(name = "run_licence",columnDefinition = "varchar(50)")
+    @Column(name = "run_licence",columnDefinition = "varchar(200)")
     private String runLicence;
     //运营证
-    @Column(name = "biz_licence",columnDefinition = "varchar(50)")
+    @Column(name = "biz_licence",columnDefinition = "varchar(200)")
     private String bizLicence;
 
     @OneToOne(fetch = FetchType.LAZY)

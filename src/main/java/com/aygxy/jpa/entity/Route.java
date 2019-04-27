@@ -20,31 +20,31 @@ import java.util.Set;
 public class Route extends BaseJpaEntity {
     //路线id
     //路线编号
-    @Column(name = "route_code",columnDefinition = "varchar(50)")
+    @Column(name = "route_code",columnDefinition = "varchar(200)")
     private String code;
     //始发城市
-    @Column(name = "start_city",columnDefinition = "varchar(50)")
+    @Column(name = "start_city",columnDefinition = "varchar(200)")
     private String startCity;
     //目的城市
-    @Column(name = "target_city",columnDefinition = "varchar(50)")
+    @Column(name = "target_city",columnDefinition = "varchar(200)")
     private String targetCity;
     //始发站点
-    @Column(name = "start_station",columnDefinition = "varchar(50)")
+    @Column(name = "start_station",columnDefinition = "varchar(200)")
     private String startStation;
     //目标站点
-    @Column(name = "target_station",columnDefinition = "varchar(50)")
+    @Column(name = "target_station",columnDefinition = "varchar(200)")
     private String targetStation;
     //城市距离
-    @Column(name = "city_distance",columnDefinition = "varchar(50)")
+    @Column(name = "city_distance",columnDefinition = "varchar(200)")
     private String cityDistance;
     //站点距离
-    @Column(name = "station_distance",columnDefinition = "varchar(50)")
+    @Column(name = "station_distance",columnDefinition = "varchar(200)")
     private String stationDistance;
     //中转城市
-    @Column(name = "transfer_city",columnDefinition = "varchar(50)")
+    @Column(name = "transfer_city",columnDefinition = "varchar(200)")
     private String transferCity;
     //中转站点
-    @Column(name = "transfer_station",columnDefinition = "varchar(50)")
+    @Column(name = "transfer_station",columnDefinition = "varchar(200)")
     private String transferStation;
 
     @ManyToMany

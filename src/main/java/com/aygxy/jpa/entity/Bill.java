@@ -28,72 +28,72 @@ import java.util.Set;
 public class Bill extends BaseJpaEntity {
     ////单据id
     //单据编号
-    @Column(name = "bill_code",columnDefinition = "varchar(50)")
+    @Column(name = "bill_code",columnDefinition = "varchar(200)")
     private String code;
     //单价类型
-    @Column(name = "type",columnDefinition = "varchar(50)")
+    @Column(name = "type",columnDefinition = "varchar(200)")
     private String  type;
     //业务员
-    @Column(name = "sales_man",columnDefinition = "varchar(50)")
+    @Column(name = "sales_man",columnDefinition = "varchar(200)")
     private String salesMan;
     //业务站点
-    @Column(name = "sales_station",columnDefinition = "varchar(50)")
+    @Column(name = "sales_station",columnDefinition = "varchar(200)")
     private String salesStation;
     //客户姓名
-    @Column(name = "customer_property",columnDefinition = "varchar(50)")
+    @Column(name = "customer_property",columnDefinition = "varchar(200)")
     private String customerName;
     //收款类型
-    @Column(name = "gather_type",columnDefinition = "varchar(50)")
+    @Column(name = "gather_type",columnDefinition = "varchar(200)")
     private String gatherType;
     //托运人
-    @Column(name = "consign_man",columnDefinition = "varchar(50)")
+    @Column(name = "consign_man",columnDefinition = "varchar(200)")
     private String conSignMan;
     //托运联系电话
-    @Column(name = "consign_phone",columnDefinition = "varchar(50)")
+    @Column(name = "consign_phone",columnDefinition = "varchar(200)")
     private String conSignPhone;
     //始发地址
-    @Column(name = "start_address",columnDefinition = "varchar(50)")
+    @Column(name = "start_address",columnDefinition = "varchar(200)")
     private String startAddress;
     //始发所在区域
-    @Column(name = "start_region",columnDefinition = "varchar(50)")
+    @Column(name = "start_region",columnDefinition = "varchar(200)")
     private String startRegion;
     //始发邮编
-    @Column(name = "start_post_code",columnDefinition = "varchar(50)")
+    @Column(name = "start_post_code",columnDefinition = "varchar(200)")
     private String startPostCode;
     //始发日期
     @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
     private Date startDate;
     //始发站点
-    @Column(name = "start_station",columnDefinition = "varchar(50)")
+    @Column(name = "start_station",columnDefinition = "varchar(200)")
     private String startStation;
     //接货人
-    @Column(name = "receive_man",columnDefinition = "varchar(50)")
+    @Column(name = "receive_man",columnDefinition = "varchar(200)")
     private String receiveMan;
     //接货联系电话
-    @Column(name = "receive_phone",columnDefinition = "varchar(50)")
+    @Column(name = "receive_phone",columnDefinition = "varchar(200)")
     private String receivePhone;
     //接货地址
-    @Column(name = "receive_address",columnDefinition = "varchar(50)")
+    @Column(name = "receive_address",columnDefinition = "varchar(200)")
     private String receiveAddress;
     //接货日期
     @Column(name = "receiveDate")
     @Temporal(TemporalType.DATE)
     private Date receiveDate;
     //目标站点
-    @Column(name = "targetStation",columnDefinition = "varchar(50)")
+    @Column(name = "targetStation",columnDefinition = "varchar(200)")
     private String targetStation;
     //目标邮编
-    @Column(name = "targetPostCode",columnDefinition = "varchar(50)")
+    @Column(name = "targetPostCode",columnDefinition = "varchar(200)")
     private String targetPostCode;
     //目标所在区域
-    @Column(name = "targetRegion",columnDefinition = "varchar(50)")
+    @Column(name = "targetRegion",columnDefinition = "varchar(200)")
     private String targetRegion;
     //服务类型
-    @Column(name = "serviceType",columnDefinition = "varchar(50)")
+    @Column(name = "serviceType",columnDefinition = "varchar(200)")
     private String serviceType;
     //运输方式
-    @Column(name = "transportationType",columnDefinition = "varchar(50)")
+    @Column(name = "transportationType",columnDefinition = "varchar(200)")
     private String transportationType;
     //其他费用
     @Column(name = "otherCost",nullable = true, precision=12, scale=2)
@@ -123,23 +123,23 @@ public class Bill extends BaseJpaEntity {
 
 
     //发车状态
-    @Column(name = "ArriveVehicleStatus",columnDefinition = "varchar(50)")
+    @Column(name = "ArriveVehicleStatus",columnDefinition = "varchar(200)")
     private String ArriveVehicleStatus;
     //车到站状态
-    @Column(name = "DepartVehicleStatus",columnDefinition = "varchar(50)")
+    @Column(name = "DepartVehicleStatus",columnDefinition = "varchar(200)")
     private String DepartVehicleStatus;
 
     //车牌号
-    @Column(name = "vehicleCode",columnDefinition = "varchar(50)")
+    @Column(name = "vehicleCode",columnDefinition = "varchar(200)")
     private String vehicleCode;
     //车辆类型
-    @Column(name = "vehicleType",columnDefinition = "varchar(50)")
+    @Column(name = "vehicleType",columnDefinition = "varchar(200)")
     private String vehicleType;
     //司机姓名
-    @Column(name = "driverName",columnDefinition = "varchar(50)")
+    @Column(name = "driverName",columnDefinition = "varchar(200)")
     private String driverName;
     //司机姓名
-    @Column(name = "driverPhone",columnDefinition = "varchar(50)")
+    @Column(name = "driverPhone",columnDefinition = "varchar(200)")
     private String driverPhone;
     //收入金额
     @Column(name = "incomePayable",nullable = true, precision=12, scale=2)

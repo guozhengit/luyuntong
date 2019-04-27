@@ -20,19 +20,19 @@ import java.math.BigDecimal;
 public class Employee extends BaseNamedJpaEntity {
     //职员id //职员姓名
     //职员编号
-    @Column(name = "employee_code",columnDefinition = "varchar(50)")
+    @Column(name = "employee_code",columnDefinition = "varchar(200)")
     private String code;
     //生日
-    @Column(name = "birthday",columnDefinition = "varchar(50)")
+    @Column(name = "birthday",columnDefinition = "varchar(200)")
     private String birthday;
     //年龄
-    @Column(name = "age",columnDefinition = "varchar(50)")
+    @Column(name = "age",columnDefinition = "varchar(200)")
     private String age;
     //职位
-    @Column(name = "position",columnDefinition = "varchar(50)")
+    @Column(name = "position",columnDefinition = "varchar(200)")
     private String position;
     //性别
-    @Column(name = "gender",columnDefinition = "varchar(50)")
+    @Column(name = "gender",columnDefinition = "varchar(200)")
     private String gender;
     //薪资
     @Column(name = "salary",nullable = true, precision=12, scale=2)
@@ -41,7 +41,7 @@ public class Employee extends BaseNamedJpaEntity {
     @Column(name = "bonus",nullable = true, precision=12, scale=2)
     private BigDecimal bonus;
     //站点编号 --StationEntity
-    @Column(name = "station_code",columnDefinition = "varchar(50)")
+    @Column(name = "station_code",columnDefinition = "varchar(200)")
     private String stationCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
