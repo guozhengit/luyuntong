@@ -24,7 +24,7 @@ public  class User extends BaseJpaEntity {
     @Column(name = "user_code",columnDefinition = "varchar(200)")
     private String code;
     // 用户名
-    @NotEmpty(message = "账号不能为空")
+    @NotEmpty(message = "用户名不能为空")
     @Size(min=3, max=20)
     @Column(name = "user_name",columnDefinition = "varchar(200)")
     private String name;

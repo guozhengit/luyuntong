@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,7 @@ public class DriverServiceimpl  implements DriverService {
     @Override
     public Result add(Driver driver) {
         try {
+            driver.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS, PhysicalConstants.ADD_SUCCESS_CN, driverRepository.save(driver));
         } catch (BusinessException e) {
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -68,6 +70,7 @@ public class DriverServiceimpl  implements DriverService {
         if (optional.isPresent()) {
             Driver entity = optional.get();
             BeanUtils.copyProperties(driver, entity);
+            entity.setUpdateTime(new Date());
             Driver driver1 = driverRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS, PhysicalConstants.UPDATE_SUCCESS_CN, driver1);
         } else {

@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class CustomerServiceimpl implements CustomerService {
     @Override
     public Result add(Customer customer) {
         try {
+            customer.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,customerRepository.save(customer));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -67,6 +69,7 @@ public class CustomerServiceimpl implements CustomerService {
         if (optional.isPresent()) {
             Customer entity = optional.get();
             BeanUtils.copyProperties(customer, entity);
+            entity.setUpdateTime(new Date());
             Customer customer1 = customerRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,customer1);
         } else {

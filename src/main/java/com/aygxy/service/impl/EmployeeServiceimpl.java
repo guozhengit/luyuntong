@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class EmployeeServiceimpl implements EmployeeService {
     @Override
     public Result add(Employee employee) {
         try {
+            employee.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,employeeRepository.save(employee));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -66,6 +68,7 @@ public class EmployeeServiceimpl implements EmployeeService {
         Optional<Employee> optional = employeeRepository.findById(id);
         if (optional.isPresent()) {
             Employee entity = optional.get();
+            entity.setUpdateTime(new Date());
             BeanUtils.copyProperties(employee, entity);
             Employee employee1 = employeeRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,employee1);

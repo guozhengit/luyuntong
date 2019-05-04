@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.DetailPayment;
 import com.aygxy.service.DetailPaymentService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -42,6 +45,13 @@ public class DetailPaymentController {
         return detailPaymentService.delete(id);
     }
 
+    @ApiOperation(value = "删除收支费用信息", notes = "批量删除")
+    @ApiImplicitParam(name = "pid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("detailPayment.delete parameter is [{}]",JSON.toJSON(ids));
+        return detailPaymentService.deleteBatch(ids);
+    }
 
     @ApiOperation(value = "编辑收支费用信息", notes = "通过id编辑收支费用")
     @PutMapping("/{id}")

@@ -16,6 +16,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * @Description: 车辆控制类
@@ -49,6 +51,13 @@ public class VehicleController {
         return vehicleService.delete(id);
     }
 
+    @ApiOperation(value = "删除车辆信息", notes = "批量删除")
+    @ApiImplicitParam(name = "vid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("vehicle.delete parameter is [{}]",JSON.toJSON(ids));
+        return vehicleService.deleteBatch(ids);
+    }
 
     @ApiOperation(value = "编辑车辆信息", notes = "通过id编辑车辆")
     @PutMapping("/{id}")

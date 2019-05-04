@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Driver;
 import com.aygxy.service.DriverService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -41,6 +44,14 @@ public class DriverController {
     public Result deleteDriver(@PathVariable String  id) {
         logger.info("driver.delete parameter is [{}]",JSON.toJSON(id));
         return driverService.delete(id);
+    }
+
+    @ApiOperation(value = "删除司机信息", notes = "批量删除")
+    @ApiImplicitParam(name = "did", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("driver.delete parameter is [{}]",JSON.toJSON(ids));
+        return driverService.deleteBatch(ids);
     }
 
 

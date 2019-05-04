@@ -18,6 +18,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class CityServiceimpl implements CityService {
     @Override
     public Result add(City city) {
         try {
+            city.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,cityRepository.save(city));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -64,6 +66,7 @@ public class CityServiceimpl implements CityService {
         Optional<City> optional = cityRepository.findById(id);
         if (optional.isPresent()) {
             City entity = optional.get();
+            entity.setUpdateTime(new Date());
             BeanUtils.copyProperties(city, entity);
             City city1 = cityRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,city1);

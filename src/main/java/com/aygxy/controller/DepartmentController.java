@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Department;
 import com.aygxy.service.DepartmentService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -43,6 +46,13 @@ public class DepartmentController {
         return departmentService.delete(id);
     }
 
+    @ApiOperation(value = "删除部门信息", notes = "批量删除")
+    @ApiImplicitParam(name = "dgid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("department.delete parameter is [{}]",JSON.toJSON(ids));
+        return departmentService.deleteBatch(ids);
+    }
 
     @ApiOperation(value = "编辑部门信息", notes = "通过id编辑部门")
     @PutMapping("/{id}")

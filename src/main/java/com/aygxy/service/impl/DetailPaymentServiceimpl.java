@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class DetailPaymentServiceimpl implements DetailPaymentService {
     @Override
     public Result add(DetailPayment detailPayment) {
         try {
+            detailPayment.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,detailPaymentRepository.save(detailPayment));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -67,6 +69,7 @@ public class DetailPaymentServiceimpl implements DetailPaymentService {
         if (optional.isPresent()) {
             DetailPayment entity = optional.get();
             BeanUtils.copyProperties(detailPayment, entity);
+            entity.setUpdateTime(new Date());
             DetailPayment detailPayment1 = detailPaymentRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,detailPayment1);
         } else {

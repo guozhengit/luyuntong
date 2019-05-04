@@ -36,4 +36,17 @@ public class Station extends BaseNamedJpaEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_code")
     private City city;
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Station{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", principal='").append(principal).append('\'');
+        sb.append(", linkPhone='").append(linkPhone).append('\'');
+        sb.append(", detailAddress='").append(detailAddress).append('\'');
+        sb.append(", postCode='").append(postCode).append('\'');
+        sb.append(", city=").append(city);
+        sb.append('}');
+        return sb.toString();
+    }
 }

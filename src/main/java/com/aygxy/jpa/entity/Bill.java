@@ -26,13 +26,34 @@ import java.util.Set;
 @Entity
 @Table(name = "physical_bill_info")
 public class Bill extends BaseJpaEntity {
-    ////单据id
     //单据编号
     @Column(name = "bill_code",columnDefinition = "varchar(200)")
     private String code;
-    //单价类型
+    //单据类型
     @Column(name = "type",columnDefinition = "varchar(200)")
     private String  type;
+    //车辆单据编号
+    @Column(name = "vehicleBillCode",columnDefinition = "varchar(200)")
+    private String  vehicleBillCode;
+    //车辆单据类型
+    @Column(name = "vehicelBillType",columnDefinition = "varchar(200)")
+    private String  vehicelBillType;
+    //车辆单据开具日期
+    @Column(name = "vehicleBillDate",columnDefinition = "varchar(200)")
+    private String  vehicleBillDate;
+    //结算单据编号
+    @Column(name = "accountBillCode",columnDefinition = "varchar(200)")
+    private String  accountBillCode;
+    //。。
+    @Column(name = "accountBillType",columnDefinition = "varchar(200)")
+    private String  accountBillType;
+    //。。
+    @Column(name = "accountBillDate",columnDefinition = "varchar(200)")
+    private String  accountBillDate;
+    //。。
+    @Column(name = "paymentCode",columnDefinition = "varchar(200)")
+    private String  paymentCode;
+
     //业务员
     @Column(name = "sales_man",columnDefinition = "varchar(200)")
     private String salesMan;
@@ -124,10 +145,10 @@ public class Bill extends BaseJpaEntity {
 
     //发车状态
     @Column(name = "ArriveVehicleStatus",columnDefinition = "varchar(200)")
-    private String ArriveVehicleStatus;
+    private String arriveVehicleStatus;
     //车到站状态
     @Column(name = "DepartVehicleStatus",columnDefinition = "varchar(200)")
-    private String DepartVehicleStatus;
+    private String departVehicleStatus;
 
     //车牌号
     @Column(name = "vehicleCode",columnDefinition = "varchar(200)")
@@ -165,5 +186,6 @@ public class Bill extends BaseJpaEntity {
 
     @OneToMany(fetch=FetchType.EAGER,cascade={CascadeType.REMOVE},mappedBy="bill")
     private Set<DetailPayment> detailPayments;
+
 
 }

@@ -22,6 +22,9 @@ public class Employee extends BaseNamedJpaEntity {
     //职员编号
     @Column(name = "employee_code",columnDefinition = "varchar(200)")
     private String code;
+
+    @Column(name = "employee_name",columnDefinition = "varchar(200)")
+    private String employeeName;
     //生日
     @Column(name = "birthday",columnDefinition = "varchar(200)")
     private String birthday;
@@ -43,6 +46,7 @@ public class Employee extends BaseNamedJpaEntity {
     //站点编号 --StationEntity
     @Column(name = "station_code",columnDefinition = "varchar(200)")
     private String stationCode;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_code")

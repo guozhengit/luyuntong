@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Station;
 import com.aygxy.service.StationService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -41,6 +44,14 @@ public class StationController {
     public Result deleteStation(@PathVariable String  id) {
         logger.info("station.delete parameter is [{}]",JSON.toJSON(id));
         return stationService.delete(id);
+    }
+
+    @ApiOperation(value = "删除站点信息", notes = "批量删除")
+    @ApiImplicitParam(name = "sid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("station.delete parameter is [{}]",JSON.toJSON(ids));
+        return stationService.deleteBatch(ids);
     }
 
 

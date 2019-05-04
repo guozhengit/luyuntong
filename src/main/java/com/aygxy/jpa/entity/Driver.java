@@ -20,6 +20,9 @@ public class Driver extends BaseNamedJpaEntity {
     //司机编号
     @Column(name = "driver_code",columnDefinition = "varchar(100)")
     private String code;
+
+    @Column(name = "driver_name",columnDefinition = "varchar(100)")
+    private String driverName;
     //身份证号
     @Column(name = "id_card",columnDefinition = "varchar(200)")
     private String idCard;
@@ -56,4 +59,22 @@ public class Driver extends BaseNamedJpaEntity {
     private Vehicle vehicle;
 
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Driver{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", idCard='").append(idCard).append('\'');
+        sb.append(", nativePlace='").append(nativePlace).append('\'');
+        sb.append(", stationCode='").append(stationCode).append('\'');
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", birthday='").append(birthday).append('\'');
+        sb.append(", address='").append(address).append('\'');
+        sb.append(", driveLicence='").append(driveLicence).append('\'');
+        sb.append(", runLicence='").append(runLicence).append('\'');
+        sb.append(", bizLicence='").append(bizLicence).append('\'');
+        sb.append(", vehicle=").append(vehicle);
+        sb.append('}');
+        return sb.toString();
+    }
 }

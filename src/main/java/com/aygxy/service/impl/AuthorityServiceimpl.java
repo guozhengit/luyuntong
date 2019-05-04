@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,6 +68,7 @@ public class AuthorityServiceimpl implements AuthorityService {
         if (optional.isPresent()) {
             Authority entity = optional.get();
             BeanUtils.copyProperties(authority, entity);
+            entity.setUpdateTime(new Date());
             Authority authority1 = authorityRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,authority1);
         } else {

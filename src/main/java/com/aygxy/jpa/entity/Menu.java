@@ -23,6 +23,9 @@ public class Menu extends BaseNamedJpaEntity {
     //菜单编号
     @Column(name = "menu_code",columnDefinition = "varchar(200)")
     private String code;
+
+    @Column(name = "menu_name",columnDefinition = "varchar(200)")
+    private String menuName;
     //菜单描述
     @Column(name = "descrition",columnDefinition = "varchar(200)")
     private String descrition;

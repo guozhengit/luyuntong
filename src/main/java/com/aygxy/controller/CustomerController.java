@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Customer;
 import com.aygxy.service.CustomerService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -43,6 +46,13 @@ public class CustomerController {
         return customerService.delete(id);
     }
 
+    @ApiOperation(value = "删除客户信息", notes = "批量删除")
+    @ApiImplicitParam(name = "cid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("department.delete parameter is [{}]",JSON.toJSON(ids));
+        return customerService.deleteBatch(ids);
+    }
 
     @ApiOperation(value = "编辑客户信息", notes = "通过id编辑客户")
     @PutMapping("/{id}")

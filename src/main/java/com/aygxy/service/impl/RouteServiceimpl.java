@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,7 @@ public class RouteServiceimpl implements RouteService {
     @Override
     public Result add(Route route) {
         try {
+            route.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,routeReposity.save(route));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -67,6 +69,7 @@ public class RouteServiceimpl implements RouteService {
         Optional<Route> optional = routeReposity.findById(id);
         if (optional.isPresent()) {
             Route entity = optional.get();
+            entity.setUpdateTime(new Date());
             BeanUtils.copyProperties(route, entity);
             Route route1 = routeReposity.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,route1);

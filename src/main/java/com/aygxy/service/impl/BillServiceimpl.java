@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class BillServiceimpl implements BillService {
     @Override
     public Result add(Bill bill) {
         try {
+            bill.setCreateTime(new Date());
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,billRepository.save(bill));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -66,6 +68,7 @@ public class BillServiceimpl implements BillService {
         Optional<Bill> optional = billRepository.findById(id);
         if (optional.isPresent()) {
             Bill entity = optional.get();
+            entity.setUpdateTime(new Date());
             BeanUtils.copyProperties(bill, entity);
             Bill bills = billRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,bills);
@@ -86,8 +89,6 @@ public class BillServiceimpl implements BillService {
         predicate = StringUtils.isBlank(bill.getVehicleCode())?predicate:ExpressionUtils.and(predicate,qBill.vehicleCode.eq(bill.getVehicleCode()));
         predicate = StringUtils.isBlank(bill.getServiceType())?predicate:ExpressionUtils.and(predicate,qBill.serviceType.eq(bill.getServiceType()));
         predicate = StringUtils.isBlank(bill.getSalesStation())?predicate:ExpressionUtils.and(predicate,qBill.salesStation.eq(bill.getSalesStation()));
-        predicate = StringUtils.isBlank(bill.getDepartVehicleStatus())?predicate:ExpressionUtils.and(predicate,qBill.DepartVehicleStatus.eq(bill.getDepartVehicleStatus()));
-
         predicate = ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
         predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
         predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));

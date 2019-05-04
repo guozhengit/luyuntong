@@ -5,6 +5,7 @@ import com.aygxy.base.Result;
 import com.aygxy.jpa.entity.Employee;
 import com.aygxy.service.EmployeeService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -41,6 +44,14 @@ public class EmployeeController {
     public Result deleteEmployee(@PathVariable String  id) {
         logger.info("employee.delete parameter is [{}]",JSON.toJSON(id));
         return employeeService.delete(id);
+    }
+
+    @ApiOperation(value = "删除职工信息", notes = "批量删除")
+    @ApiImplicitParam(name = "mid", required = true, dataType = "String[]")
+    @PostMapping("/deleteBatch")
+    public Result deleteUser(@RequestBody List<String> ids) {
+        logger.info("route.delete parameter is [{}]",JSON.toJSON(ids));
+        return employeeService.deleteBatch(ids);
     }
 
 

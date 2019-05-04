@@ -22,6 +22,10 @@ public class Route extends BaseJpaEntity {
     //路线编号
     @Column(name = "route_code",columnDefinition = "varchar(200)")
     private String code;
+
+     @Column(name = "route_name",columnDefinition = "varchar(200)")
+    private String routeName;
+
     //始发城市
     @Column(name = "start_city",columnDefinition = "varchar(200)")
     private String startCity;
@@ -51,4 +55,20 @@ public class Route extends BaseJpaEntity {
     @JoinTable(name="route_city_info", joinColumns=@JoinColumn(name="route_code"), inverseJoinColumns=@JoinColumn(name="city_code"))
     private Set<City> citySet = new HashSet<>();
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Route{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", startCity='").append(startCity).append('\'');
+        sb.append(", targetCity='").append(targetCity).append('\'');
+        sb.append(", startStation='").append(startStation).append('\'');
+        sb.append(", targetStation='").append(targetStation).append('\'');
+        sb.append(", cityDistance='").append(cityDistance).append('\'');
+        sb.append(", stationDistance='").append(stationDistance).append('\'');
+        sb.append(", transferCity='").append(transferCity).append('\'');
+        sb.append(", transferStation='").append(transferStation).append('\'');
+        sb.append(", citySet=").append(citySet);
+        sb.append('}');
+        return sb.toString();
+    }
 }

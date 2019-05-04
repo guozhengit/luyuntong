@@ -22,6 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,6 +53,7 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
     public Result addByOne( User userEntity) {
         try {
             String password = userEntity.getPassword();
+            userEntity.setCreateTime(new Date());
             userEntity.setPassword(passwordEncoder.encode(password));
             User user = userRepository.save(userEntity);
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,user);
@@ -89,6 +91,8 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
         if (optional.isPresent()) {
             User entity = optional.get();
             BeanUtils.copyProperties(user, entity);
+            entity.setUpdateTime(new Date());
+
             User user1 = userRepository.save(entity);
             return new Result<>(PhysicalConstants.UPDATE_SUCCESS,PhysicalConstants.UPDATE_SUCCESS_CN,user1);
         } else {
@@ -141,6 +145,7 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
         Predicate predicate =  qUser.isNotNull().or(qUser.isNull());
         //执行动态条件拼装
         predicate = StringUtils.isBlank(user.getName()) ? predicate :  ExpressionUtils.and( predicate,qUser.name.eq(user.getName()));
+        predicate = StringUtils.isBlank(user.getCode()) ? predicate :  ExpressionUtils.and( predicate,qUser.code.eq(user.getCode()));
         predicate = StringUtils.isBlank(user.getId()) ? predicate :  ExpressionUtils.and( predicate,qUser.id.eq(user.getId()));
         predicate = StringUtils.isBlank(user.getAge()) ? predicate :  ExpressionUtils.and( predicate,qUser.age.eq(user.getAge()));
         predicate = StringUtils.isBlank(user.getGender()) ? predicate :  ExpressionUtils.and( predicate,qUser.gender.eq(user.getGender()));

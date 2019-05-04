@@ -6,8 +6,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 /**
- * @Description: TODO
- * @Author: Guoyongzheng
+ * @Description: 解决跨域问题配置项
+ * @Author: xmf
  * @Date: 2019/4/14-18:50
  */
 @Configuration
@@ -19,6 +19,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowedMethods("*")
                 .allowedHeaders("*")
+                /*此处如果设置为false 就会导致session失效*/
                 .allowCredentials(true);
     }
 }
