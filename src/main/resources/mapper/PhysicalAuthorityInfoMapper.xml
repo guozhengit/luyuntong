@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.mybatis.mapper.PhysicalAuthorityInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.mybatis.entity.PhysicalAuthorityInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="authority_menu_code" property="authorityMenuCode" jdbcType="VARCHAR" />
+    <result column="authority_user_code" property="authorityUserCode" jdbcType="VARCHAR" />
+    <result column="authority_code" property="authorityCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, name, authority_menu_code, authority_user_code, authority_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_authority_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_authority_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.mybatis.entity.PhysicalAuthorityInfo" >
+    insert into physical_authority_info (id, create_time, update_time, 
+      name, authority_menu_code, authority_user_code, 
+      authority_code)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{authorityMenuCode,jdbcType=VARCHAR}, #{authorityUserCode,jdbcType=VARCHAR}, 
+      #{authorityCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.mybatis.entity.PhysicalAuthorityInfo" >
+    insert into physical_authority_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="authorityMenuCode != null" >
+        authority_menu_code,
+      </if>
+      <if test="authorityUserCode != null" >
+        authority_user_code,
+      </if>
+      <if test="authorityCode != null" >
+        authority_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityMenuCode != null" >
+        #{authorityMenuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityUserCode != null" >
+        #{authorityUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityCode != null" >
+        #{authorityCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.mybatis.entity.PhysicalAuthorityInfo" >
+    update physical_authority_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityMenuCode != null" >
+        authority_menu_code = #{authorityMenuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityUserCode != null" >
+        authority_user_code = #{authorityUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorityCode != null" >
+        authority_code = #{authorityCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.mybatis.entity.PhysicalAuthorityInfo" >
+    update physical_authority_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      authority_menu_code = #{authorityMenuCode,jdbcType=VARCHAR},
+      authority_user_code = #{authorityUserCode,jdbcType=VARCHAR},
+      authority_code = #{authorityCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

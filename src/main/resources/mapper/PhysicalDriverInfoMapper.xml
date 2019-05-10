@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.mybatis.mapper.PhysicalDriverInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.mybatis.entity.PhysicalDriverInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="biz_licence" property="bizLicence" jdbcType="VARCHAR" />
+    <result column="driver_code" property="driverCode" jdbcType="VARCHAR" />
+    <result column="drive_licence" property="driveLicence" jdbcType="VARCHAR" />
+    <result column="driver_name" property="driverName" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="run_licence" property="runLicence" jdbcType="VARCHAR" />
+    <result column="station_code" property="stationCode" jdbcType="VARCHAR" />
+    <result column="vehicle_code" property="vehicleCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, name, address, birthday, biz_licence, driver_code, 
+    drive_licence, driver_name, gender, id_card, native_place, phone, run_licence, station_code, 
+    vehicle_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_driver_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_driver_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.mybatis.entity.PhysicalDriverInfo" >
+    insert into physical_driver_info (id, create_time, update_time, 
+      name, address, birthday, 
+      biz_licence, driver_code, drive_licence, 
+      driver_name, gender, id_card, 
+      native_place, phone, run_licence, 
+      station_code, vehicle_code)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{bizLicence,jdbcType=VARCHAR}, #{driverCode,jdbcType=VARCHAR}, #{driveLicence,jdbcType=VARCHAR}, 
+      #{driverName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{nativePlace,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{runLicence,jdbcType=VARCHAR}, 
+      #{stationCode,jdbcType=VARCHAR}, #{vehicleCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.mybatis.entity.PhysicalDriverInfo" >
+    insert into physical_driver_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="bizLicence != null" >
+        biz_licence,
+      </if>
+      <if test="driverCode != null" >
+        driver_code,
+      </if>
+      <if test="driveLicence != null" >
+        drive_licence,
+      </if>
+      <if test="driverName != null" >
+        driver_name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="runLicence != null" >
+        run_licence,
+      </if>
+      <if test="stationCode != null" >
+        station_code,
+      </if>
+      <if test="vehicleCode != null" >
+        vehicle_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="bizLicence != null" >
+        #{bizLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="driverCode != null" >
+        #{driverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="driveLicence != null" >
+        #{driveLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="driverName != null" >
+        #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="runLicence != null" >
+        #{runLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null" >
+        #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleCode != null" >
+        #{vehicleCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.mybatis.entity.PhysicalDriverInfo" >
+    update physical_driver_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="bizLicence != null" >
+        biz_licence = #{bizLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="driverCode != null" >
+        driver_code = #{driverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="driveLicence != null" >
+        drive_licence = #{driveLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="driverName != null" >
+        driver_name = #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="runLicence != null" >
+        run_licence = #{runLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null" >
+        station_code = #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleCode != null" >
+        vehicle_code = #{vehicleCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.mybatis.entity.PhysicalDriverInfo" >
+    update physical_driver_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      biz_licence = #{bizLicence,jdbcType=VARCHAR},
+      driver_code = #{driverCode,jdbcType=VARCHAR},
+      drive_licence = #{driveLicence,jdbcType=VARCHAR},
+      driver_name = #{driverName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      native_place = #{nativePlace,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      run_licence = #{runLicence,jdbcType=VARCHAR},
+      station_code = #{stationCode,jdbcType=VARCHAR},
+      vehicle_code = #{vehicleCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

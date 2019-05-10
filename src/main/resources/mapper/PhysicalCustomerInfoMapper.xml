@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.mybatis.mapper.PhysicalCustomerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aygxy.mybatis.entity.PhysicalCustomerInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="customer_code" property="customerCode" jdbcType="VARCHAR" />
+    <result column="customer_bill_code" property="customerBillCode" jdbcType="VARCHAR" />
+    <result column="detail_address" property="detailAddress" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="enterprise_property" property="enterpriseProperty" jdbcType="VARCHAR" />
+    <result column="enterprise_size" property="enterpriseSize" jdbcType="VARCHAR" />
+    <result column="link_mobile" property="linkMobile" jdbcType="VARCHAR" />
+    <result column="past_code" property="pastCode" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, name, customer_code, customer_bill_code, detail_address, 
+    email, enterprise_property, enterprise_size, link_mobile, past_code, type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from physical_customer_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from physical_customer_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aygxy.mybatis.entity.PhysicalCustomerInfo" >
+    insert into physical_customer_info (id, create_time, update_time, 
+      name, customer_code, customer_bill_code, 
+      detail_address, email, enterprise_property, 
+      enterprise_size, link_mobile, past_code, 
+      type)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{customerCode,jdbcType=VARCHAR}, #{customerBillCode,jdbcType=VARCHAR}, 
+      #{detailAddress,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{enterpriseProperty,jdbcType=VARCHAR}, 
+      #{enterpriseSize,jdbcType=VARCHAR}, #{linkMobile,jdbcType=VARCHAR}, #{pastCode,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aygxy.mybatis.entity.PhysicalCustomerInfo" >
+    insert into physical_customer_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="customerCode != null" >
+        customer_code,
+      </if>
+      <if test="customerBillCode != null" >
+        customer_bill_code,
+      </if>
+      <if test="detailAddress != null" >
+        detail_address,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="enterpriseProperty != null" >
+        enterprise_property,
+      </if>
+      <if test="enterpriseSize != null" >
+        enterprise_size,
+      </if>
+      <if test="linkMobile != null" >
+        link_mobile,
+      </if>
+      <if test="pastCode != null" >
+        past_code,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerBillCode != null" >
+        #{customerBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="detailAddress != null" >
+        #{detailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseProperty != null" >
+        #{enterpriseProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseSize != null" >
+        #{enterpriseSize,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMobile != null" >
+        #{linkMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pastCode != null" >
+        #{pastCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aygxy.mybatis.entity.PhysicalCustomerInfo" >
+    update physical_customer_info
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerBillCode != null" >
+        customer_bill_code = #{customerBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="detailAddress != null" >
+        detail_address = #{detailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseProperty != null" >
+        enterprise_property = #{enterpriseProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseSize != null" >
+        enterprise_size = #{enterpriseSize,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMobile != null" >
+        link_mobile = #{linkMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="pastCode != null" >
+        past_code = #{pastCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aygxy.mybatis.entity.PhysicalCustomerInfo" >
+    update physical_customer_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      customer_code = #{customerCode,jdbcType=VARCHAR},
+      customer_bill_code = #{customerBillCode,jdbcType=VARCHAR},
+      detail_address = #{detailAddress,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      enterprise_property = #{enterpriseProperty,jdbcType=VARCHAR},
+      enterprise_size = #{enterpriseSize,jdbcType=VARCHAR},
+      link_mobile = #{linkMobile,jdbcType=VARCHAR},
+      past_code = #{pastCode,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

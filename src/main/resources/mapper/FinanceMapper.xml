@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aygxy.mybatis.mapper.FinanceMapper">
+
+    <select id="salaryManage" resultType="com.aygxy.mybatis.entity.SalaryMode">
+        SELECT
+        idType,
+        subsidy,
+        officeCode,
+        balanceDate,
+        salary,
+        bonus,
+        bonus+subsidy+salary AS totalSalary
+        FROM
+        (
+        ( SELECT
+        1 AS idType,
+        employee_code AS officeCode,
+        salary AS salary,
+        bonus AS bonus,
+        floor(rand()*2000) AS subsidy,
+        DATE_FORMAT( create_time, "%Y-%m-%d" ) AS balanceDate FROM physical_employee_info ) UNION ALL
+        (
+        SELECT
+        0 AS idType,
+        driver_code AS officeCode,
+        floor( rand() * 15000 ) AS salary,
+        floor( rand() * 10000 ) AS bonus,
+        floor(rand()*2000) AS subsidy,
+        DATE_FORMAT( create_time, "%Y-%m-%d" ) AS balanceDate
+        FROM
+        physical_driver_info
+        )
+        ) t
+        WHERE 1=1
+        <if test="idType != null">
+            AND t.idType = #{idType}
+        </if>
+        <if test="officeCode != null">
+            AND t.officeCode = #{officeCode}
+        </if>
+        <if test="balanceDate != null">
+            AND t.balanceDate = #{balanceDate}
+        </if>
+    </select>
+    <select id="operationManage" resultType="com.aygxy.mybatis.entity.OperationModel">
+    </select>
+    <select id="customerManage" parameterType="com.aygxy.mybatis.entity.CustomerModel" resultType="com.aygxy.mybatis.entity.CustomerModel">
+        SELECT
+        pc.name AS customerName,
+        pc.customer_code As customerCode,
+        pb.account_bill_type as accountType,
+        floor(rand()*5) as accountStatus,
+        floor(rand()*500000) as accountAmount,
+        floor(rand()*5000) as unAccountAmount,
+        pb.account_bill_date AS accountTime
+        FROM physical_customer_info pc LEFT JOIN physical_bill_info pb
+        on pc.customer_code = pb.customer_code
+        WHERE 1=1
+        <if test="customerCode != null">
+            AND pc.customer_code = #{customerCode}
+        </if>
+        <if test="accountType != null">
+            AND pb.account_bill_type = #{accountType}
+        </if>
+        <if test="accountTime != null">
+            AND t.customer_code = #{accountTime}
+        </if>
+    </select>
+
+    <select id="profitManage" resultType="com.aygxy.mybatis.entity.ProfitModel">
+    </select>
+
+</mapper>
