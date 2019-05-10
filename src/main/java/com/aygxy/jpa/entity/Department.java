@@ -27,7 +27,7 @@ public class Department extends BaseNamedJpaEntity {
     @Column(name = "descrition",columnDefinition = "varchar(200)")
     private String descrition;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
-    private List<Employee> employeeList;
+    @Column(name = "employee_code",columnDefinition = "varchar(200)")
+    private String employeeCode;
 
 }

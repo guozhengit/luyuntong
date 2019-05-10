@@ -86,6 +86,8 @@ public class StationServiceimpl implements StationService {
         Predicate predicate = qStation.isNotNull().or(qStation.isNull());
         predicate = StringUtils.isBlank(station.getCode()) ? predicate:ExpressionUtils.and(predicate,qStation.code.eq(station.getCode()));
         predicate = StringUtils.isBlank(station.getPostCode())?predicate:ExpressionUtils.and(predicate,qStation.postCode.eq(station.getPostCode()));
+        predicate = StringUtils.isBlank(station.getName())?predicate:ExpressionUtils.and(predicate,qStation.name.eq(station.getName()));
+        predicate = StringUtils.isBlank(station.getCityCode())?predicate:ExpressionUtils.and(predicate,qStation.cityCode.eq(station.getCityCode()));
         List<Station> list = jpaQueryFactory.selectFrom(qStation).where(predicate).offset(pageable.getOffset()).orderBy(qStation.createTime.desc())
                 .limit(pageable.getPageSize()).fetch();
         //查询条数

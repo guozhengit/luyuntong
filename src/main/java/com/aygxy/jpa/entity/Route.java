@@ -51,24 +51,7 @@ public class Route extends BaseJpaEntity {
     @Column(name = "transfer_station",columnDefinition = "varchar(200)")
     private String transferStation;
 
-    @ManyToMany
-    @JoinTable(name="route_city_info", joinColumns=@JoinColumn(name="route_code"), inverseJoinColumns=@JoinColumn(name="city_code"))
-    private Set<City> citySet = new HashSet<>();
+    @Column(name = "city_code",columnDefinition = "varchar(200)")
+    private String cityCode;
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("Route{");
-        sb.append("code='").append(code).append('\'');
-        sb.append(", startCity='").append(startCity).append('\'');
-        sb.append(", targetCity='").append(targetCity).append('\'');
-        sb.append(", startStation='").append(startStation).append('\'');
-        sb.append(", targetStation='").append(targetStation).append('\'');
-        sb.append(", cityDistance='").append(cityDistance).append('\'');
-        sb.append(", stationDistance='").append(stationDistance).append('\'');
-        sb.append(", transferCity='").append(transferCity).append('\'');
-        sb.append(", transferStation='").append(transferStation).append('\'');
-        sb.append(", citySet=").append(citySet);
-        sb.append('}');
-        return sb.toString();
-    }
 }

@@ -83,7 +83,9 @@ public class DriverServiceimpl  implements DriverService {
         QDriver qDriver = QDriver.driver;
         Predicate predicate = qDriver.isNotNull().or(qDriver.isNull());
         predicate = StringUtils.isBlank(driver.getIdCard()) ? predicate : ExpressionUtils.and(predicate, qDriver.idCard.eq(driver.getIdCard()));
-        predicate = StringUtils.isBlank(driver.getAddress()) ? predicate : ExpressionUtils.and(predicate, qDriver.address.eq(driver.getAddress()));
+        predicate = StringUtils.isBlank(driver.getCode()) ? predicate : ExpressionUtils.and(predicate, qDriver.code.eq(driver.getCode()));
+        predicate = StringUtils.isBlank(driver.getDriveLicence()) ? predicate : ExpressionUtils.and(predicate, qDriver.driveLicence.eq(driver.getDriveLicence()));
+        predicate = StringUtils.isBlank(driver.getGender()) ? predicate : ExpressionUtils.and(predicate, qDriver.driveLicence.eq(driver.getGender()));
         List<Driver> list = jpaQueryFactory.selectFrom(qDriver).where(predicate).offset(pageable.getOffset()).orderBy(qDriver.createTime.desc())
                 .limit(pageable.getPageSize()).fetch();
         //查询条数

@@ -47,10 +47,7 @@ public class Employee extends BaseNamedJpaEntity {
     @Column(name = "station_code",columnDefinition = "varchar(200)")
     private String stationCode;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_code")
-    // 在多端（从表的外键）添加外键字段指向一端（主表的主键）的主键字段
-    private Department department;
+    @Column(name = "department_code",columnDefinition = "varchar(200)")
+    private String departmentCode;
 
 }

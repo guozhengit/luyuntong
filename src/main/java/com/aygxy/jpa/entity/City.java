@@ -32,10 +32,11 @@ public class City extends BaseNamedJpaEntity {
     @Column(name = "owner_province",columnDefinition = "varchar(200)")
     private String ownerProvince;
 
-    @OneToMany(cascade={CascadeType.REMOVE},mappedBy="city")
-    private Set<Station> stations;
+    @Column(name = "stations_code",columnDefinition = "varchar(200)")
+    private String stationsCode;
 
-    @ManyToMany(mappedBy = "citySet" )
-    private Set<Route> routeSet = new HashSet<>();
+    @Column(name = "route_code",columnDefinition = "varchar(200)")
+    private String routeCode;
+
 
 }

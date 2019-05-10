@@ -64,7 +64,7 @@ public class DriverController {
 
     @ApiOperation(value = "查询司机", notes = "分页动态查询司机信息")
     @PostMapping("/pageQuery")
-    public Result pageDriver(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable, @RequestBody Driver driver) {
+    public Result pageDriver(@PageableDefault( direction = Sort.Direction.DESC) Pageable pageable, @RequestBody Driver driver) {
         return driverService.dynamicQuery(pageable,driver);
     }
 

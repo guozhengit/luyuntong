@@ -65,33 +65,7 @@ public class Vehicle extends BaseNamedJpaEntity {
     @Column(name = "insurance_card",columnDefinition = "varchar(200)")
     private String insuranceCard;
 
-    // JoinTable所在的一端为多方关系的维护端
-    // 指定当前表在中间表的外键名称和外键所指向的当前表主键
-    // 指定另一方在中间表的外键名称和外键所指向的主键
-    @ManyToMany
-    @JoinTable(name = "vehicle_goods_info", joinColumns= {@JoinColumn(name = "vehicle_code")}, inverseJoinColumns= {@JoinColumn(name = "goods_code")})
-    private Set<DetailGoods> detailGoodsSet = new HashSet<>();
+    @Column(name = "vehicle_goods_code",columnDefinition = "varchar(200)")
+    private String detailGoodCode;
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("Vehicle{");
-        sb.append("code='").append(code).append('\'');
-        sb.append(", owner='").append(owner).append('\'');
-        sb.append(", stationCode='").append(stationCode).append('\'');
-        sb.append(", type='").append(type).append('\'');
-        sb.append(", model='").append(model).append('\'');
-        sb.append(", length='").append(length).append('\'');
-        sb.append(", high='").append(high).append('\'');
-        sb.append(", width='").append(width).append('\'');
-        sb.append(", allowCarryVolume='").append(allowCarryVolume).append('\'');
-        sb.append(", allowCarryWeight='").append(allowCarryWeight).append('\'');
-        sb.append(", allowCarryHigh='").append(allowCarryHigh).append('\'');
-        sb.append(", useAge='").append(useAge).append('\'');
-        sb.append(", frameNo='").append(frameNo).append('\'');
-        sb.append(", engineNo='").append(engineNo).append('\'');
-        sb.append(", insuranceCard='").append(insuranceCard).append('\'');
-        sb.append(", detailGoodsSet=").append(detailGoodsSet);
-        sb.append('}');
-        return sb.toString();
-    }
 }

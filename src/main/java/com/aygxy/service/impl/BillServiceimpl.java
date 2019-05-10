@@ -82,22 +82,23 @@ public class BillServiceimpl implements BillService {
         QBill qBill = QBill.bill;
         Predicate predicate = qBill.isNotNull().or(qBill.isNull());
         predicate = StringUtils.isBlank(bill.getCode()) ? predicate:ExpressionUtils.and(predicate,qBill.code.eq(bill.getCode()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getGatherType())?predicate:ExpressionUtils.and(predicate,qBill.gatherType.eq(bill.getGatherType()));
-        predicate = StringUtils.isBlank(bill.getSalesMan())?predicate:ExpressionUtils.and(predicate,qBill.salesMan.eq(bill.getSalesMan()));
         predicate = StringUtils.isBlank(bill.getType())?predicate:ExpressionUtils.and(predicate,qBill.type.eq(bill.getType()));
+        predicate = StringUtils.isBlank(bill.getStartDate())?predicate:ExpressionUtils.and(predicate,qBill.startDate.eq(bill.getStartDate()));
+        predicate = StringUtils.isBlank(bill.getReceiveDate())?predicate:ExpressionUtils.and(predicate,qBill.receiveDate.eq(bill.getReceiveDate()));
+        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
+        predicate = StringUtils.isBlank(bill.getSalesMan())?predicate:ExpressionUtils.and(predicate,qBill.salesMan.eq(bill.getSalesMan()));
+        predicate = StringUtils.isBlank(bill.getGatherType())?predicate:ExpressionUtils.and(predicate,qBill.gatherType.eq(bill.getGatherType()));
+        predicate = StringUtils.isBlank(bill.getPaymentType())?predicate:ExpressionUtils.and(predicate,qBill.paymentType.eq(bill.getPaymentType()));
         predicate = StringUtils.isBlank(bill.getVehicleCode())?predicate:ExpressionUtils.and(predicate,qBill.vehicleCode.eq(bill.getVehicleCode()));
         predicate = StringUtils.isBlank(bill.getServiceType())?predicate:ExpressionUtils.and(predicate,qBill.serviceType.eq(bill.getServiceType()));
         predicate = StringUtils.isBlank(bill.getSalesStation())?predicate:ExpressionUtils.and(predicate,qBill.salesStation.eq(bill.getSalesStation()));
-        predicate = ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
-        predicate = StringUtils.isBlank(bill.getConSignMan())?predicate:ExpressionUtils.and(predicate,qBill.conSignMan.eq(bill.getConSignMan()));
+        predicate = StringUtils.isBlank(bill.getArriveVehicleStatus())?predicate:ExpressionUtils.and(predicate,qBill.arriveVehicleStatus.eq(bill.getArriveVehicleStatus()));
+        predicate = StringUtils.isBlank(bill.getPaymentCode())?predicate:ExpressionUtils.and(predicate,qBill.paymentCode.eq(bill.getPaymentCode()));
+        predicate = StringUtils.isBlank(bill.getAccountBillCode())?predicate:ExpressionUtils.and(predicate,qBill.accountBillCode.eq(bill.getAccountBillCode()));
+        predicate = StringUtils.isBlank(bill.getAccountBillType())?predicate:ExpressionUtils.and(predicate,qBill.accountBillType.eq(bill.getAccountBillType()));
+        predicate = StringUtils.isBlank(bill.getAccountBillDate())?predicate:ExpressionUtils.and(predicate,qBill.accountBillDate.eq(bill.getAccountBillDate()));
+        predicate = StringUtils.isBlank(bill.getCustomerCode())?predicate:ExpressionUtils.and(predicate,qBill.customerCode.eq(bill.getCustomerCode()));
+        predicate = StringUtils.isBlank(bill.getCustomerName())?predicate:ExpressionUtils.and(predicate,qBill.customerName.eq(bill.getCustomerName()));
         List<Bill> list = jpaQueryFactory.selectFrom(qBill).where(predicate).offset(pageable.getOffset()).orderBy(qBill.createTime.desc())
                 .limit(pageable.getPageSize()).fetch();
         //查询条数

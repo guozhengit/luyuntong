@@ -32,6 +32,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+
     @ApiOperation(value = "添加客户信息")
     @PostMapping()
     public Result addCustomer(@RequestBody Customer customer) {
@@ -66,5 +67,7 @@ public class CustomerController {
     public Result pageCustomer(@PageableDefault(value = 10, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable, @RequestBody Customer customer) {
         return customerService.dynamicQuery(pageable,customer);
     }
+
+
 
 }

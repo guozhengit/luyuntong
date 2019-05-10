@@ -20,11 +20,21 @@ public class Authority extends BaseNamedJpaEntity {
 
     @Column(name = "authority_code",columnDefinition = "varchar(200)")
     private String code;
+    /*关联菜单字段*/
+    @Column(name = "authority_menu_code",columnDefinition = "varchar(200)")
+    private String authorityMenuCode;
+    /*关联用户字段*/
+    @Column(name = "authority_user_code",columnDefinition = "varchar(200)")
+    private String authorityUserCode;
 
-    @ManyToMany
-    @JoinTable(name="authority_menu_info", joinColumns=@JoinColumn(name="menu_code"), inverseJoinColumns=@JoinColumn(name="authority_code"))
-    private List<Menu> menus;
+    //private List<Menu> menuList;
+    //
+    //private List<User> userList;
 
-    @ManyToMany(mappedBy = "authorityList")
-    private List<User> userList;
+    //@ManyToMany
+    //@JoinTable(name="authority_menu_info", joinColumns=@JoinColumn(name="menu_code"), inverseJoinColumns=@JoinColumn(name="authority_code"))
+    //private List<Menu> menus;
+    //
+    //@ManyToMany(mappedBy = "authorityList")
+    //private List<User> userList;
 }

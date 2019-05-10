@@ -22,7 +22,6 @@ import javax.persistence.EntityManager;
 @SpringBootApplication
 //定时任务
 @EnableScheduling
-@MapperScan(basePackages = {"com.aygxy.dao"})
 //过滤器
 @ServletComponentScan
 public class LuYunTongApplication extends SpringBootServletInitializer {

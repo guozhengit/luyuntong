@@ -4,3 +4,8 @@ spring: #默认profiles
     active: jpa
 server:
   port: 8090
+#mybatis配置
+mybatis:
+     mapperLocations:  classpath:/mapper/*.xml;
+     typeAliasesPackage: com.aygxy.mybatis.entity
+     configLocation: classpath:/mybatis-config.xml

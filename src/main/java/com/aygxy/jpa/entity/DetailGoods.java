@@ -52,12 +52,11 @@ public class DetailGoods extends BaseNamedJpaEntity {
     //是否为危险物
     @Column(name = "is_dangerous",columnDefinition = "varchar(200)")
     private String isDangerous;
+    //
+    @Column(name = "bill_goods_code",columnDefinition = "varchar(200)")
+    private String billGoodsCode;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="bill_code")
-    private Bill bill;
-
-    @ManyToMany(mappedBy = "detailGoodsSet")
-    private Set<Vehicle> vehicleSet = new HashSet<>();
+    @Column(name = "vehicle_code",columnDefinition = "varchar(200)")
+    private String vehicleCode;
 
 }

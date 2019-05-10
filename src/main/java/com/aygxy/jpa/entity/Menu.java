@@ -30,7 +30,7 @@ public class Menu extends BaseNamedJpaEntity {
     @Column(name = "descrition",columnDefinition = "varchar(200)")
     private String descrition;
 
-    @ManyToMany(mappedBy = "menus")
-    private List<Authority> authoritys;
+    @Column(name = "authoritys_code",columnDefinition = "varchar(200)")
+    private String descritionCode;
 
 }

@@ -40,7 +40,8 @@ public class DetailPayment extends BaseJpaEntity {
     @Column(name = "total_amount",nullable = true, precision=12, scale=2)
     private BigDecimal totalAmount;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="bill_code")
-    private Bill bill;
+    //单据收支ID
+    @Column(name = "bill_payment_code",columnDefinition = "varchar(200)")
+    private String billPaymentCode;
+
 }
