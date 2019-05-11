@@ -18,17 +18,14 @@ public class SimpleAuthenticationFilter extends UsernamePasswordAuthenticationFi
     public SimpleAuthenticationFilter() {
         super.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/auth/login", "POST"));
     }
-
     /**
      * 是否开启验证码功能
      */
     private boolean openValidateCode = true;
-
     /**
      * Request中验证码字段名称
      */
     private final static String REQUEST_VALIDATE_CODE = "captcha";
-
     /**
      * Session中验证码字段名称
      */
@@ -41,7 +38,6 @@ public class SimpleAuthenticationFilter extends UsernamePasswordAuthenticationFi
         }
         return super.attemptAuthentication(request, response);
     }
-
     private void checkValidateCode(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String sessionValidateCode = obtainSessionValidateCode(session);

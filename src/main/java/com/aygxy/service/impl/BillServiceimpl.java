@@ -9,6 +9,7 @@ import com.aygxy.jpa.entity.QBill;
 import com.aygxy.jpa.repository.BillRepository;
 import com.aygxy.service.BillService;
 import com.aygxy.util.BeanUtils;
+import com.aygxy.util.RandomUtil;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -19,6 +20,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Column;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +43,8 @@ public class BillServiceimpl implements BillService {
     public Result add(Bill bill) {
         try {
             bill.setCreateTime(new Date());
+            //填装合法数据
+            this.setMockData(bill);
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,billRepository.save(bill));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -89,7 +94,6 @@ public class BillServiceimpl implements BillService {
         predicate = StringUtils.isBlank(bill.getSalesMan())?predicate:ExpressionUtils.and(predicate,qBill.salesMan.eq(bill.getSalesMan()));
         predicate = StringUtils.isBlank(bill.getGatherType())?predicate:ExpressionUtils.and(predicate,qBill.gatherType.eq(bill.getGatherType()));
         predicate = StringUtils.isBlank(bill.getPaymentType())?predicate:ExpressionUtils.and(predicate,qBill.paymentType.eq(bill.getPaymentType()));
-        predicate = StringUtils.isBlank(bill.getVehicleCode())?predicate:ExpressionUtils.and(predicate,qBill.vehicleCode.eq(bill.getVehicleCode()));
         predicate = StringUtils.isBlank(bill.getServiceType())?predicate:ExpressionUtils.and(predicate,qBill.serviceType.eq(bill.getServiceType()));
         predicate = StringUtils.isBlank(bill.getSalesStation())?predicate:ExpressionUtils.and(predicate,qBill.salesStation.eq(bill.getSalesStation()));
         predicate = StringUtils.isBlank(bill.getArriveVehicleStatus())?predicate:ExpressionUtils.and(predicate,qBill.arriveVehicleStatus.eq(bill.getArriveVehicleStatus()));
@@ -97,6 +101,12 @@ public class BillServiceimpl implements BillService {
         predicate = StringUtils.isBlank(bill.getAccountBillCode())?predicate:ExpressionUtils.and(predicate,qBill.accountBillCode.eq(bill.getAccountBillCode()));
         predicate = StringUtils.isBlank(bill.getAccountBillType())?predicate:ExpressionUtils.and(predicate,qBill.accountBillType.eq(bill.getAccountBillType()));
         predicate = StringUtils.isBlank(bill.getAccountBillDate())?predicate:ExpressionUtils.and(predicate,qBill.accountBillDate.eq(bill.getAccountBillDate()));
+
+        predicate = StringUtils.isBlank(bill.getVehicleCode())?predicate:ExpressionUtils.and(predicate,qBill.vehicleCode.eq(bill.getVehicleCode()));
+        predicate = StringUtils.isBlank(bill.getVehicelBillType())?predicate:ExpressionUtils.and(predicate,qBill.vehicelBillType.eq(bill.getVehicelBillType()));
+        predicate = StringUtils.isBlank(bill.getVehicleBillDate())?predicate:ExpressionUtils.and(predicate,qBill.vehicleBillDate.eq(bill.getVehicleBillDate()));
+
+        predicate = StringUtils.isBlank(bill.getPaymentsDate())?predicate:ExpressionUtils.and(predicate,qBill.paymentsDate.eq(bill.getPaymentsDate()));
         predicate = StringUtils.isBlank(bill.getCustomerCode())?predicate:ExpressionUtils.and(predicate,qBill.customerCode.eq(bill.getCustomerCode()));
         predicate = StringUtils.isBlank(bill.getCustomerName())?predicate:ExpressionUtils.and(predicate,qBill.customerName.eq(bill.getCustomerName()));
         List<Bill> list = jpaQueryFactory.selectFrom(qBill).where(predicate).offset(pageable.getOffset()).orderBy(qBill.createTime.desc())
@@ -108,5 +118,61 @@ public class BillServiceimpl implements BillService {
                 .fetchCount();
         Page<Bill> page = new PageImpl<>(list, pageable, count);
         return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
+    }
+
+    //填装合法数据
+    private Bill setMockData(Bill bill){
+        int[] status = new int[]{1,2};
+        bill.setCode(StringUtils.isEmpty(bill.getCode())?"TY".concat(RandomUtil.getStringBumber(6)):bill.getCode());
+        bill.setType(RandomUtil.getStringBumber(status,1));
+        bill.setSalesMan(RandomUtil.getChineseName());
+        bill.setConSignMan(RandomUtil.getChineseName());
+        bill.setConSignPhone(RandomUtil.getTel());
+        bill.setStartAddress(RandomUtil.getRoad());
+        bill.setStartRegion(RandomUtil.getStation());
+        bill.setStartPostCode(RandomUtil.getStringBumber(6));
+        bill.setStartDate(RandomUtil.randomBirth());
+        bill.setStartStation(RandomUtil.getStation());
+        bill.setReceiveMan(RandomUtil.getChineseName());
+        bill.setReceivePhone(RandomUtil.getTel());
+        bill.setReceiveAddress(RandomUtil.getRoad());
+        bill.setReceiveDate(RandomUtil.randomBirth());
+        bill.setTargetStation(RandomUtil.getStation());
+        bill.setServiceType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setTransportationType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setOtherCost(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setLogisticsCost(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setTransportCost(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setPaymentType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setAccountPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setRealityPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setUnReceivedPayable(new BigDecimal(RandomUtil.getStringBumber(3)));
+        bill.setAllowancePayable(new BigDecimal(RandomUtil.getStringBumber(3)));
+        bill.setArriveVehicleStatus(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setDepartVehicleStatus(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setVehicleCode(RandomUtil.generateCarID());
+        bill.setVehicleType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setDriverName(RandomUtil.getChineseName());
+        bill.setDriverPhone(RandomUtil.getTel());
+        bill.setIncomePayable(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setExpendPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
+        bill.setPaymentsTotal(new BigDecimal(RandomUtil.getStringBumber(5)));
+        bill.setPaymentsDate(RandomUtil.randomBirth());
+        bill.setVehicleBillCode("VB".concat(RandomUtil.getStringBumber(6)));
+        bill.setVehicelBillType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setVehicleBillDate(RandomUtil.randomBirth());
+        bill.setAccountBillCode("BD".concat(RandomUtil.getStringBumber(6)));
+        bill.setAccountBillType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        bill.setAccountBillDate(RandomUtil.randomBirth());
+        bill.setPaymentCode("PAY".concat(RandomUtil.getStringBumber(6)));
+        bill.setCustomerName(RandomUtil.getChineseName());
+        bill.setTargetPostCode(RandomUtil.getStringBumber(6));
+        bill.setTargetRegion(RandomUtil.getStation());
+        bill.setCustomerCode(RandomUtil.getStringBumber(5));
+        bill.setDetailGoodsCustomerCode("DC".concat(RandomUtil.getStringBumber(6)));
+        bill.setDetailPaymentCustomerCode("PC".concat(RandomUtil.getStringBumber(6)));
+        bill.setSalesStation(RandomUtil.getStation());
+        bill.setGatherType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
+        return  bill;
     }
 }

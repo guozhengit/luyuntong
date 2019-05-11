@@ -80,8 +80,8 @@ public class Bill extends BaseJpaEntity {
     @Column(name = "otherCost",nullable = true, precision=12, scale=2)
     private BigDecimal otherCost;
     //物流费用
-    @Column(name = "logisCost",nullable = true, precision=12, scale=2)
-    private BigDecimal logisCost;
+    @Column(name = "logisticsCost",nullable = true, precision=12, scale=2)
+    private BigDecimal logisticsCost;
     //运输费用
     @Column(name = "transportCost",nullable = true, precision=12, scale=2)
     private BigDecimal transportCost;

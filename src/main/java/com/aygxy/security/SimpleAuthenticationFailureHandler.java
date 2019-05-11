@@ -31,14 +31,6 @@ public class SimpleAuthenticationFailureHandler extends SimpleUrlAuthenticationF
                     message = "用户不存在";
                     break;
                 }
-                case "LockedException": {
-                    message = "用户已锁定";
-                    break;
-                }
-                case "DisabledException": {
-                    message = "用户未激活";
-                    break;
-                }
                 case "BadCredentialsException": {
                     message = "用户名或密码错误";
                     break;
