@@ -38,13 +38,15 @@ public class BillServiceimpl implements BillService {
     JPAQueryFactory jpaQueryFactory;
     @Autowired
     BillRepository billRepository;
+    @Autowired
+    MockDataService mockDataService;
 
     @Override
     public Result add(Bill bill) {
         try {
             bill.setCreateTime(new Date());
             //填装合法数据
-            this.setMockData(bill);
+            //mockDataService.setMockBill(bill);
             return new Result<>(PhysicalConstants.ADD_SUCCESS,PhysicalConstants.ADD_SUCCESS_CN,billRepository.save(bill));
         }catch (BusinessException e){
             throw new BusinessException(PhysicalConstants.ADD_UNSUCCESS_CN);
@@ -120,59 +122,5 @@ public class BillServiceimpl implements BillService {
         return new Result(PhysicalConstants.REQUE_SUCCESS,PhysicalConstants.REQUE_SUCCESS_CN,page);
     }
 
-    //填装合法数据
-    private Bill setMockData(Bill bill){
-        int[] status = new int[]{1,2};
-        bill.setCode(StringUtils.isEmpty(bill.getCode())?"TY".concat(RandomUtil.getStringBumber(6)):bill.getCode());
-        bill.setType(RandomUtil.getStringBumber(status,1));
-        bill.setSalesMan(RandomUtil.getChineseName());
-        bill.setConSignMan(RandomUtil.getChineseName());
-        bill.setConSignPhone(RandomUtil.getTel());
-        bill.setStartAddress(RandomUtil.getRoad());
-        bill.setStartRegion(RandomUtil.getStation());
-        bill.setStartPostCode(RandomUtil.getStringBumber(6));
-        bill.setStartDate(RandomUtil.randomBirth());
-        bill.setStartStation(RandomUtil.getStation());
-        bill.setReceiveMan(RandomUtil.getChineseName());
-        bill.setReceivePhone(RandomUtil.getTel());
-        bill.setReceiveAddress(RandomUtil.getRoad());
-        bill.setReceiveDate(RandomUtil.randomBirth());
-        bill.setTargetStation(RandomUtil.getStation());
-        bill.setServiceType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setTransportationType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setOtherCost(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setLogisticsCost(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setTransportCost(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setPaymentType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setAccountPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setRealityPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setUnReceivedPayable(new BigDecimal(RandomUtil.getStringBumber(3)));
-        bill.setAllowancePayable(new BigDecimal(RandomUtil.getStringBumber(3)));
-        bill.setArriveVehicleStatus(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setDepartVehicleStatus(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setVehicleCode(RandomUtil.generateCarID());
-        bill.setVehicleType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setDriverName(RandomUtil.getChineseName());
-        bill.setDriverPhone(RandomUtil.getTel());
-        bill.setIncomePayable(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setExpendPayable(new BigDecimal(RandomUtil.getStringBumber(4)));
-        bill.setPaymentsTotal(new BigDecimal(RandomUtil.getStringBumber(5)));
-        bill.setPaymentsDate(RandomUtil.randomBirth());
-        bill.setVehicleBillCode("VB".concat(RandomUtil.getStringBumber(6)));
-        bill.setVehicelBillType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setVehicleBillDate(RandomUtil.randomBirth());
-        bill.setAccountBillCode("BD".concat(RandomUtil.getStringBumber(6)));
-        bill.setAccountBillType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        bill.setAccountBillDate(RandomUtil.randomBirth());
-        bill.setPaymentCode("PAY".concat(RandomUtil.getStringBumber(6)));
-        bill.setCustomerName(RandomUtil.getChineseName());
-        bill.setTargetPostCode(RandomUtil.getStringBumber(6));
-        bill.setTargetRegion(RandomUtil.getStation());
-        bill.setCustomerCode(RandomUtil.getStringBumber(5));
-        bill.setDetailGoodsCustomerCode("DC".concat(RandomUtil.getStringBumber(6)));
-        bill.setDetailPaymentCustomerCode("PC".concat(RandomUtil.getStringBumber(6)));
-        bill.setSalesStation(RandomUtil.getStation());
-        bill.setGatherType(RandomUtil.getStringBumber((new int[]{1,2,3}),1));
-        return  bill;
-    }
+
 }

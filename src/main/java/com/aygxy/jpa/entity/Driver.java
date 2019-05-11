@@ -57,4 +57,12 @@ public class Driver extends BaseNamedJpaEntity {
     @Column(name = "vehicle_code",columnDefinition = "varchar(200)")
     private String vhicleCode;
 
+    public Driver(String code, String stationCode, String vhicleCode) {
+        this.code = code;
+        this.stationCode = stationCode;
+        this.vhicleCode = vhicleCode;
+    }
+
+    public Driver() {
+    }
 }

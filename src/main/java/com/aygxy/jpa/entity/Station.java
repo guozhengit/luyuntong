@@ -36,4 +36,11 @@ public class Station extends BaseNamedJpaEntity {
     @Column(name = "city_code",columnDefinition = "varchar(200)")
     private String cityCode;
 
+    public Station(String code, String cityCode) {
+        this.code = code;
+        this.cityCode = cityCode;
+    }
+
+    public Station() {
+    }
 }

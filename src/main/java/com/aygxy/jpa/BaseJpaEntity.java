@@ -17,8 +17,6 @@ import java.util.Date;
  * @Date: 2019/4/7-13:24
  */
 @MappedSuperclass
-@Setter
-@Getter
 public abstract class BaseJpaEntity implements Serializable {
     private static final long serialVersionUID = -262786556790895107L;
 
@@ -38,4 +36,40 @@ public abstract class BaseJpaEntity implements Serializable {
     @LastModifiedDate
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public Date getCreateTime() {
+        return createTime = new Date();
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime = new Date();
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 }

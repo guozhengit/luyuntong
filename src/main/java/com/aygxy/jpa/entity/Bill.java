@@ -147,6 +147,9 @@ public class Bill extends BaseJpaEntity {
 
 
 
+
+
+
     //运输单据编号
     @Column(name = "vehicleBillCode",columnDefinition = "varchar(200)")
     private String  vehicleBillCode;
@@ -190,4 +193,10 @@ public class Bill extends BaseJpaEntity {
     private String detailPaymentCustomerCode;
 
 
+    public Bill(String routeCode, String cityCode) {
+        super();
+    }
+
+    public Bill() {
+    }
 }

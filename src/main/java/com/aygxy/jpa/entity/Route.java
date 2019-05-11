@@ -54,4 +54,11 @@ public class Route extends BaseJpaEntity {
     @Column(name = "city_code",columnDefinition = "varchar(200)")
     private String cityCode;
 
+    public Route() {
+    }
+
+    public Route(String code, String cityCode) {
+        this.code = code;
+        this.cityCode = cityCode;
+    }
 }

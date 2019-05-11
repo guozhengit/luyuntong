@@ -50,4 +50,12 @@ public class Employee extends BaseNamedJpaEntity {
     @Column(name = "department_code",columnDefinition = "varchar(200)")
     private String departmentCode;
 
+    public Employee(String code, String stationCode, String departmentCode) {
+        this.code = code;
+        this.stationCode = stationCode;
+        this.departmentCode = departmentCode;
+    }
+
+    public Employee() {
+    }
 }

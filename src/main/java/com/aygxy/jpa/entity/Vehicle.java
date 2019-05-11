@@ -68,4 +68,12 @@ public class Vehicle extends BaseNamedJpaEntity {
     @Column(name = "vehicle_goods_code",columnDefinition = "varchar(200)")
     private String detailGoodCode;
 
+    public Vehicle(String code, String stationCode, String detailGoodCode) {
+        this.code = code;
+        this.stationCode = stationCode;
+        this.detailGoodCode = detailGoodCode;
+    }
+
+    public Vehicle() {
+    }
 }

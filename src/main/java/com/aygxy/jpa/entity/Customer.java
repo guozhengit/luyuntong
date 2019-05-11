@@ -55,6 +55,13 @@ public class Customer extends BaseNamedJpaEntity {
     @Column(name = "customer_bill_code",columnDefinition = "varchar(200)")
     private String customerBillCode;
 
+    public Customer(String code, String customerBillCode) {
+        this.code = code;
+        this.customerBillCode = customerBillCode;
+    }
+
+    public Customer() {
+    }
     //映射单向一对多的关联关系
     //使用@OneToMany 来映射一对多的关联关系
     //使用@JoinColumn 来映射外键列的名称
