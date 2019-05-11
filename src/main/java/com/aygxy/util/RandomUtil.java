@@ -26,6 +26,7 @@ public class RandomUtil {
     public static final String LETTERCHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static String alphas = "QWERTYUIOPASDFGHJKLZXCVBNM1234567890";
     public static String base = "abcdefghijklmnopqrstuvwxyz0123456789";
+    public static String sexs[] = {"男，女"};
     public static final int[] INTARRAY = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
     private static String[] telFirst = "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153".split(",");
@@ -115,6 +116,17 @@ public class RandomUtil {
         int index = getNum(0, road.length - 1);
         String station = road[index];
         return station;
+    }
+
+    /**
+     * 返回性别
+     *
+     * @return
+     */
+    public static String getSex() {
+        int index = getNum(0, road.length - 1);
+        String sex = sexs[index];
+        return sex;
     }
     /**
      * 返回城市

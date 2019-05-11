@@ -150,7 +150,6 @@ public class  UserServiceImpl extends BaseServiceImpl implements UserService{
         predicate = StringUtils.isBlank(user.getAge()) ? predicate :  ExpressionUtils.and( predicate,qUser.age.eq(user.getAge()));
         predicate = StringUtils.isBlank(user.getGender()) ? predicate :  ExpressionUtils.and( predicate,qUser.gender.eq(user.getGender()));
         predicate = StringUtils.isBlank(user.getBirthDay()) ? predicate :  ExpressionUtils.and( predicate,qUser.birthDay.eq(user.getBirthDay()));
-        predicate = user.getCreateTime() == null ? predicate :  ExpressionUtils.and( predicate,qUser.createTime.eq(user.getCreateTime()));
         //查询列表
         List<User> list = jpaQueryFactory
                 .selectFrom(qUser)

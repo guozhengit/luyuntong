@@ -82,6 +82,10 @@ public class RouteServiceimpl implements RouteService {
     public Result dynamicQuery(Pageable pageable, Route route) {
         QRoute qRoute = QRoute.route;
         Predicate predicate = qRoute.isNotNull().or(qRoute.isNull());
+        predicate = StringUtils.isBlank(route.getCityCode()) ? predicate:ExpressionUtils.and(predicate,qRoute.cityCode.eq(route.getCityCode()));
+        predicate = StringUtils.isBlank(route.getRouteName()) ? predicate:ExpressionUtils.and(predicate,qRoute.routeName.eq(route.getRouteName()));
+        predicate = StringUtils.isBlank(route.getCode()) ? predicate:ExpressionUtils.and(predicate,qRoute.code.eq(route.getCode()));
+        predicate = StringUtils.isBlank(route.getStationDistance()) ? predicate:ExpressionUtils.and(predicate,qRoute.stationDistance.eq(route.getStationDistance()));
         predicate = StringUtils.isBlank(route.getStartCity()) ? predicate:ExpressionUtils.and(predicate,qRoute.startCity.eq(route.getStartCity()));
         predicate = StringUtils.isBlank(route.getTargetCity())?predicate:ExpressionUtils.and(predicate,qRoute.targetCity.eq(route.getTargetCity()));
         List<Route> list = jpaQueryFactory.selectFrom(qRoute).where(predicate).offset(pageable.getOffset()).orderBy(qRoute.createTime.desc())

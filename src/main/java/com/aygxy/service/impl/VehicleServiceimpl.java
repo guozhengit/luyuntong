@@ -81,7 +81,10 @@ public class VehicleServiceimpl implements VehicleService {
         QVehicle qVehicle = QVehicle.vehicle;
         Predicate predicate =  qVehicle.isNotNull().or(qVehicle.isNull());
         predicate = StringUtils.isBlank(vehicle.getName()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.name.eq(vehicle.getName()));
+        predicate = StringUtils.isBlank(vehicle.getType()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.type.eq(vehicle.getType()));
+        predicate = StringUtils.isBlank(vehicle.getModel()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.model.eq(vehicle.getModel()));
         predicate = StringUtils.isBlank(vehicle.getCode()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.code.eq(vehicle.getCode()));
+        predicate = StringUtils.isBlank(vehicle.getUseAge()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.useAge.eq(vehicle.getUseAge()));
         predicate = StringUtils.isBlank(vehicle.getAllowCarryVolume()) ? predicate :  ExpressionUtils.and( predicate,qVehicle.allowCarryVolume.eq(vehicle.getAllowCarryVolume()));
         List<Vehicle>  list = jpaQueryFactory.selectFrom(qVehicle).where(predicate)
                 .offset(pageable.getOffset())

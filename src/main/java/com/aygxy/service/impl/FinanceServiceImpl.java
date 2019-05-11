@@ -5,15 +5,18 @@ import com.aygxy.mybatis.mapper.FinanceMapper;
 import com.aygxy.model.*;
 import com.aygxy.service.FinanceService;
 import com.aygxy.util.RandomUtil;
+import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Description: TODO
@@ -32,6 +35,7 @@ public class FinanceServiceImpl implements FinanceService {
         //todo:暂造假数据测试
         int[] status = new int[]{1,2};
         List<SalaryMode> salaryModeList = new ArrayList<>();
+
         for(int i = 0;i<50;i++){
             SalaryMode model = new SalaryMode();
             model.setOfficeCode(RandomUtil.generateZeroString(5).concat(String.valueOf(i+1)));
@@ -47,7 +51,14 @@ public class FinanceServiceImpl implements FinanceService {
             model.setTotalSalary(model.getSalary().add(model.getBonus()).add(model.getSubsidy()));
             salaryModeList.add(model);
         }
-        Page<SalaryMode> returnPage = new PageImpl<>(salaryModeList, pageable, salaryModeList.size());
+        Page<SalaryMode> returnPage;
+        if (!StringUtils.isEmpty(salaryMode) && StringUtil.isNotEmpty(salaryMode.getBalanceDate())){
+            List<SalaryMode> filterlist = new ArrayList<>();
+            String query = salaryMode.getBalanceDate();
+            filterlist = salaryModeList.stream().filter(salaryMode1 -> salaryMode.getBalanceDate().equals(query)).collect(Collectors.toList());
+            returnPage = new PageImpl<>(filterlist, pageable, salaryModeList.size());
+        }
+        returnPage = new PageImpl<>(salaryModeList, pageable, salaryModeList.size());
         return returnPage;
     }
 
@@ -67,6 +78,7 @@ public class FinanceServiceImpl implements FinanceService {
             model.setQuarter(RandomUtil.randomBirth());
             operationModelList.add(model);
         }
+
         Page<OperationModel> returnPage = new PageImpl<>(operationModelList, pageable, operationModelList.size());
         return returnPage;
     }

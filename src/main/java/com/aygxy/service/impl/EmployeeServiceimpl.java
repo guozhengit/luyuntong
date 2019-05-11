@@ -114,7 +114,10 @@ public class EmployeeServiceimpl implements EmployeeService {
         QEmployee qEmployee = QEmployee.employee;
         Predicate predicate = qEmployee.isNotNull().or(qEmployee.isNull());
         predicate = StringUtils.isBlank(employee.getCode()) ? predicate:ExpressionUtils.and(predicate,qEmployee.code.eq(employee.getCode()));
+        predicate = StringUtils.isBlank(employee.getName()) ? predicate:ExpressionUtils.and(predicate,qEmployee.name.eq(employee.getName()));
+        predicate = StringUtils.isBlank(employee.getEmployeeName()) ? predicate:ExpressionUtils.and(predicate,qEmployee.employeeName.eq(employee.getEmployeeName()));
         predicate = StringUtils.isBlank(employee.getAge())?predicate:ExpressionUtils.and(predicate,qEmployee.age.eq(employee.getAge()));
+        predicate = StringUtils.isBlank(employee.getGender())?predicate:ExpressionUtils.and(predicate,qEmployee.gender.eq(employee.getGender()));
         List<Employee> list = jpaQueryFactory.selectFrom(qEmployee).where(predicate).offset(pageable.getOffset()).orderBy(qEmployee.createTime.desc())
                 .limit(pageable.getPageSize()).fetch();
         //查询条数

@@ -41,7 +41,6 @@ public class UserController {
     @PostMapping()
     public Result addUser(@RequestBody User user) {
         logger.info("user.add parameter is [{}]",JSON.toJSON(user));
-
         return userService.addByOne(user);
     }
 
