@@ -12,7 +12,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import java.util.TimeZone;
 
 /**
  * @Description: SpringBoot启动类
@@ -36,6 +38,11 @@ public class LuYunTongApplication extends SpringBootServletInitializer {
         return application.sources(LuYunTongApplication.class);
     }
 
+    @PostConstruct
+    void setDefaultTimezone() {
+        TimeZone.setDefault(TimeZone.getTimeZone("Asia/Shanghai"));
+        logger.info("当前时区消息{}",TimeZone.getTimeZone("Asia/Shanghai"));
+    }
     //让Spring管理JPAQueryFactory
     @Bean
     public JPAQueryFactory jpaQueryFactory(EntityManager entityManager){

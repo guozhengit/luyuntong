@@ -1,0 +1,236 @@
+2019-07-12 15:21:28.689 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 13152 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:21:28.691 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:21:29.866 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:21:29.966 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85ms. Found 14 repository interfaces.
+2019-07-12 15:21:30.270 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$83c65f8b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:21:30.562 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:21:30.620 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:21:30.626 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:21:30.627 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:21:30.729 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:21:30.729 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2001 ms
+2019-07-12 15:21:31.188 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:24:54.621 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 7236 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:24:54.623 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:24:55.452 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:24:55.533 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76ms. Found 14 repository interfaces.
+2019-07-12 15:24:55.825 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d198e212] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:24:56.121 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:24:56.131 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:24:56.137 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:24:56.137 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:24:56.229 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:24:56.229 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1572 ms
+2019-07-12 15:24:56.651 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:27:16.021 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 17520 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:27:16.023 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:27:16.836 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:27:16.931 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79ms. Found 14 repository interfaces.
+2019-07-12 15:27:17.222 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8431db15] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:27:17.518 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:27:17.529 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:27:17.535 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:27:17.535 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:27:17.631 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:27:17.631 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1575 ms
+2019-07-12 15:27:18.057 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:30:08.409 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 2908 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:30:08.410 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:30:09.257 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:30:09.339 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75ms. Found 14 repository interfaces.
+2019-07-12 15:30:09.626 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4ce93670] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:30:09.927 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:30:09.937 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:30:09.943 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:30:09.943 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:30:10.034 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:30:10.034 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1591 ms
+2019-07-12 15:30:10.456 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:31:40.702 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 4736 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:31:40.704 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:31:41.535 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:31:41.617 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77ms. Found 14 repository interfaces.
+2019-07-12 15:31:41.903 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5a397c62] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:31:42.201 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:31:42.213 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:31:42.220 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:31:42.220 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:31:42.324 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:31:42.324 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1588 ms
+2019-07-12 15:31:42.793 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:34:24.875 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 7892 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:34:24.877 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:34:25.711 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:34:25.796 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79ms. Found 14 repository interfaces.
+2019-07-12 15:34:26.100 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b2f3d60] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:34:26.393 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:34:26.404 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:34:26.410 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:34:26.411 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:34:26.506 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:34:26.506 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1595 ms
+2019-07-12 15:34:26.931 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:36:25.433 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 8668 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:36:25.434 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:36:26.262 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:36:26.355 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77ms. Found 14 repository interfaces.
+2019-07-12 15:36:26.644 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7d1bd8e7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:36:26.944 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:36:26.955 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:36:26.961 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:36:26.961 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:36:27.055 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:36:27.055 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1589 ms
+2019-07-12 15:36:27.487 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:36:58.246 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 14216 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:36:58.247 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:36:59.100 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:36:59.182 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76ms. Found 14 repository interfaces.
+2019-07-12 15:36:59.467 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$80017e95] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:36:59.760 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:36:59.770 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:36:59.777 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:36:59.777 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:36:59.868 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:36:59.868 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1586 ms
+2019-07-12 15:37:00.298 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:39:11.557 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 4056 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:39:11.559 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:39:12.405 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:39:12.485 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75ms. Found 14 repository interfaces.
+2019-07-12 15:39:12.776 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$df7ff99f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:39:13.025 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:39:13.035 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:39:13.041 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:39:13.041 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:39:13.179 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:39:13.179 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1588 ms
+2019-07-12 15:39:13.597 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:39:13.696 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-12 15:39:13.779 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2019-07-12 15:39:13.781 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-07-12 15:39:13.922 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-12 15:39:14.066 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2019-07-12 15:39:15.280 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-12 15:39:15.312 INFO  com.aygxy.LuYunTongApplication - 当前时区消息sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=29,lastRule=null]
+2019-07-12 15:39:16.120 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-07-12 15:39:16.240 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-07-12 15:39:16.372 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-12 15:39:16.603 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-07-12 15:39:16.644 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-07-12 15:39:16.659 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-07-12 15:39:16.690 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-07-12 15:39:16.712 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:39:16.730 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-12 15:39:16.732 INFO  com.aygxy.LuYunTongApplication - Started LuYunTongApplication in 5.445 seconds (JVM running for 6.109)
+2019-07-12 15:39:16.740 INFO  com.aygxy.LuYunTongApplication - [---------陆运物流管理系统启动成功！----------]
+2019-07-12 15:39:17.516 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-12 15:39:17.516 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-12 15:39:17.525 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-07-12 15:43:28.884 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 13700 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:43:28.886 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:43:29.720 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:43:29.815 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81ms. Found 14 repository interfaces.
+2019-07-12 15:43:30.151 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2f669d2a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:43:30.520 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:43:30.532 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:43:30.539 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:43:30.539 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:43:30.638 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:43:30.638 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1719 ms
+2019-07-12 15:43:31.087 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:43:31.182 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-12 15:43:31.244 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2019-07-12 15:43:31.245 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-07-12 15:43:31.357 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-12 15:43:31.483 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2019-07-12 15:43:32.268 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-12 15:43:32.293 INFO  com.aygxy.LuYunTongApplication - 当前时区消息sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=29,lastRule=null]
+2019-07-12 15:43:33.152 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-07-12 15:43:33.281 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-07-12 15:43:33.414 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-12 15:43:33.640 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-07-12 15:43:33.682 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-07-12 15:43:33.696 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-07-12 15:43:33.727 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-07-12 15:43:33.748 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:43:33.766 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-12 15:43:33.767 INFO  com.aygxy.LuYunTongApplication - Started LuYunTongApplication in 5.177 seconds (JVM running for 5.915)
+2019-07-12 15:43:33.775 INFO  com.aygxy.LuYunTongApplication - [---------陆运物流管理系统启动成功！----------]
+2019-07-12 15:43:34.208 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-12 15:43:34.208 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-12 15:43:34.217 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-07-12 15:46:20.868 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 8 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:46:20.870 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:46:21.742 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:46:21.837 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89ms. Found 14 repository interfaces.
+2019-07-12 15:46:22.163 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8dee9e70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:46:22.461 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:46:22.471 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:46:22.477 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:46:22.477 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:46:22.570 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:46:22.571 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1667 ms
+2019-07-12 15:46:23.001 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:46:23.097 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-12 15:46:23.160 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2019-07-12 15:46:23.161 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-07-12 15:46:23.274 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-12 15:46:23.392 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2019-07-12 15:46:24.203 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-12 15:46:24.227 INFO  com.aygxy.LuYunTongApplication - 当前时区消息sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=29,lastRule=null]
+2019-07-12 15:46:25.051 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-07-12 15:46:25.172 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-07-12 15:46:25.303 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-12 15:46:25.560 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-07-12 15:46:25.602 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-07-12 15:46:25.616 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-07-12 15:46:25.646 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-07-12 15:46:25.666 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:46:25.683 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-12 15:46:25.684 INFO  com.aygxy.LuYunTongApplication - Started LuYunTongApplication in 5.091 seconds (JVM running for 5.764)
+2019-07-12 15:46:25.692 INFO  com.aygxy.LuYunTongApplication - [---------陆运物流管理系统启动成功！----------]
+2019-07-12 15:46:26.264 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-12 15:46:26.264 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-12 15:46:26.273 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-07-12 15:47:21.310 INFO  com.aygxy.LuYunTongApplication - Starting LuYunTongApplication on DESKTOP-FCK7F88 with PID 18396 (E:\ideaWorkSpance\luyuntong\target\classes started by JQ_GYZ in E:\ideaWorkSpance\luyuntong)
+2019-07-12 15:47:21.312 INFO  com.aygxy.LuYunTongApplication - The following profiles are active: jpa
+2019-07-12 15:47:22.156 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-12 15:47:22.239 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78ms. Found 14 repository interfaces.
+2019-07-12 15:47:22.531 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ecae4127] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-12 15:47:22.829 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-12 15:47:22.840 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:47:22.846 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-12 15:47:22.846 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-12 15:47:22.941 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-12 15:47:22.941 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1597 ms
+2019-07-12 15:47:23.366 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-12 15:47:23.460 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-12 15:47:23.512 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2019-07-12 15:47:23.514 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-07-12 15:47:23.622 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-12 15:47:23.745 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2019-07-12 15:47:24.513 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-12 15:47:24.536 INFO  com.aygxy.LuYunTongApplication - 当前时区消息sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=29,lastRule=null]
+2019-07-12 15:47:25.314 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-07-12 15:47:25.435 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-07-12 15:47:25.565 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-12 15:47:25.789 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2019-07-12 15:47:25.835 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-07-12 15:47:25.849 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-07-12 15:47:25.879 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-07-12 15:47:25.899 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-12 15:47:25.916 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-12 15:47:25.917 INFO  com.aygxy.LuYunTongApplication - Started LuYunTongApplication in 4.91 seconds (JVM running for 5.635)
+2019-07-12 15:47:25.925 INFO  com.aygxy.LuYunTongApplication - [---------陆运物流管理系统启动成功！----------]
+2019-07-12 15:47:26.620 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-12 15:47:26.620 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-12 15:47:26.629 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms

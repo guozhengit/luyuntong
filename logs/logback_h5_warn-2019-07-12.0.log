@@ -1,0 +1,28 @@
+2019-07-12 15:21:29.631 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:21:29.744 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:24:55.246 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:24:55.334 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:27:16.638 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:27:16.727 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:30:09.045 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:30:09.138 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:31:41.329 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:31:41.419 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:34:25.520 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:34:25.609 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:36:26.058 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:36:26.149 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:36:58.890 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:36:58.982 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:39:12.213 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:39:12.303 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:39:15.741 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-12 15:43:29.517 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:43:29.608 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:43:32.753 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-12 15:46:21.517 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:46:21.611 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:46:24.668 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-12 15:47:21.962 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy.dao]' package. Please check your configuration.
+2019-07-12 15:47:22.050 WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.aygxy]' package. Please check your configuration.
+2019-07-12 15:47:24.941 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
